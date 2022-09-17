@@ -1,4 +1,3 @@
-from unicodedata import name
 from ui.windows.interface import Ui_iterface
 from PySide6.QtWidgets import QMainWindow, QApplication, QGraphicsOpacityEffect
 from PySide6.QtCore import QPropertyAnimation, QEasingCurve
