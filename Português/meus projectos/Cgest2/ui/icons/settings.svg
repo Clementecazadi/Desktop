@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="25"
+   height="25"
+   viewBox="0 0 6.6145832 6.6145835"
+   version="1.1"
+   id="svg5"
+   sodipodi:docname="settings.svg"
+   inkscape:version="1.1.2 (0a00cf5, 2022-02-04)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     units="px"
+     height="35px"
+     inkscape:zoom="16.942857"
+     inkscape:cx="17.470489"
+     inkscape:cy="17.5"
+     inkscape:window-width="1440"
+     inkscape:window-height="844"
+     inkscape:window-x="0"
+     inkscape:window-y="20"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g9126"
+       style="fill:#f9f9f9"
+       transform="matrix(1.5219088,0,0,1.5206079,-0.12060632,-0.32123382)">
+      <path
+         id="path8264"
+         style="fill:#f9f9f9;fill-rule:evenodd;stroke-width:5.25095"
+         d="M 2.3263076,0.94426416 A 1.5,1.5 0 0 0 0.82665766,2.444431 1.5,1.5 0 0 0 2.3263076,3.9445979 1.5,1.5 0 0 0 3.8264744,2.444431 1.5,1.5 0 0 0 2.3263076,0.94426416 Z m 0,0.65008944 A 0.85000001,0.85000001 0 0 1 3.176385,2.444431 0.85000001,0.85000001 0 0 1 2.3263076,3.2945082 0.85000001,0.85000001 0 0 1 1.4762304,2.444431 0.85000001,0.85000001 0 0 1 2.3263076,1.5943536 Z" />
+      <rect
+         style="fill:#f9f9f9;fill-rule:evenodd;stroke-width:3.26501"
+         id="rect8757"
+         width="0.83425999"
+         height="1.0812749"
+         x="-0.70322764"
+         y="1.1490148"
+         ry="0.28728986"
+         transform="rotate(-48.459306)" />
+      <rect
+         style="fill:#f9f9f9;fill-rule:evenodd;stroke-width:3.26501"
+         id="rect8839"
+         width="0.83425999"
+         height="1.0812749"
+         x="-0.70788044"
+         y="4.4574099"
+         ry="0.28728986"
+         transform="rotate(-48.459306)" />
+      <rect
+         style="fill:#f9f9f9;fill-rule:evenodd;stroke-width:3.26501"
+         id="rect8841"
+         width="0.83425999"
+         height="1.0812749"
+         x="-3.7935269"
+         y="-2.4446633"
+         ry="0.28728986"
+         transform="rotate(-137.38404)" />
+      <rect
+         style="fill:#f9f9f9;fill-rule:evenodd;stroke-width:3.26501"
+         id="rect8843"
+         width="0.83425999"
+         height="1.0812749"
+         x="-3.8202178"
+         y="0.85074091"
+         ry="0.28728986"
+         transform="rotate(-137.38404)" />
+      <rect
+         style="fill:#f9f9f9;fill-rule:evenodd;stroke-width:3.26501"
+         id="rect8845"
+         width="0.83425999"
+         height="1.0812749"
+         x="-2.7842674"
+         y="3.3596087"
+         ry="0.28728986"
+         transform="rotate(-89.608218)" />
+      <rect
+         style="fill:#f9f9f9;fill-rule:evenodd;stroke-width:3.26501"
+         id="rect8847"
+         width="0.83425999"
+         height="1.0812749"
+         x="-2.9585528"
+         y="0.09752167"
+         ry="0.28728986"
+         transform="rotate(-89.608218)" />
+      <rect
+         style="fill:#f9f9f9;fill-rule:evenodd;stroke-width:3.26501"
+         id="rect8849"
+         width="0.83425999"
+         height="1.0812749"
+         x="-2.6844509"
+         y="-1.3387852"
+         ry="0.28728986"
+         transform="rotate(178.89678)" />
+      <rect
+         style="fill:#f9f9f9;fill-rule:evenodd;stroke-width:3.26501"
+         id="rect8851"
+         width="0.83425999"
+         height="1.0812749"
+         x="-2.7355058"
+         y="-4.6041493"
+         ry="0.28728986"
+         transform="rotate(178.89678)" />
+    </g>
+  </g>
+</svg>
