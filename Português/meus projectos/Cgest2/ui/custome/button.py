@@ -6,15 +6,15 @@ import os
 
 
 class Button_custome(QPushButton):
-    def __init__(self, text = '', height = 50, minimum_width = 50,
-                text_padding = 55, text_color = '#ffffff', icon_path = '',
+    def __init__(self, text='', height=50, minimum_width=50,
+                text_padding=55, text_color = '#ffffff', icon_path = '',
                 icon_color = '#ffffff', btn_color = '#397e72', btn_hover = '#56c0ac',
                 btn_pressed = '#2a5e55', is_active = False, ste = True):
         super(Button_custome, self).__init__()
         self.setText(text)
         self.setMinimumHeight(height)
         self.setCursor(Qt.PointingHandCursor)
-        self.setFont(get_font('josefin.ttf', 14))
+        self.setFont(get_font('JosefinSans-SemiBold.ttf', 14))
 
         self.text_padding = text_padding
         self.text_color = text_color
@@ -32,7 +32,6 @@ class Button_custome(QPushButton):
         norlma = f"""
                     QPushButton{{
                         color: {self.text_color};
-                        font: 500;
                         background-color: {self.btn_color};
                         padding-left: {self.text_padding}px;
                         text-align: left; 
@@ -48,7 +47,6 @@ class Button_custome(QPushButton):
         active = f"""QPushButton{{
                     background-color: #13252c;
                     color: {self.text_color};
-                    font: 500;
                     padding-left: {self.text_padding}px;
                     text-align: left; 
                     border: none;
