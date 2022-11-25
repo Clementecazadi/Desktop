@@ -73,9 +73,45 @@ class Block_dish_manager(QWidget):
         self.ui_layers.setMovement(QListWidget.Static)
         self.ui_layers.setWordWrap(True)
         self.ui_layers.setVerticalScrollMode(QListWidget.ScrollPerPixel)
-        scrobar = QScrollBar()
-        scrobar.set
-        #self.ui_layers.setVerticalScrollBar()
+        self.ui_layers.setStyleSheet(""
+            " QScrollBar:vertical {\n"
+            "	border: none;\n"
+            "    background: rgb(52, 59, 72);\n"
+            "    width: 14px;\n"
+            "    margin: 21px 0 21px 0;\n"
+            "	border-radius: 0px;\n"
+            " }\n"
+            " QScrollBar::handle:vertical {	\n"
+            "	background: rgb(85, 170, 255);\n"
+            "    min-height: 25px;\n"
+            "	border-radius: 7px\n"
+            " }\n"
+            " QScrollBar::add-line:vertical {\n"
+            "     border: none;\n"
+            "    background: rgb(55, 63, 77);\n"
+            "     height: 20px;\n"
+            "	border-bottom-left-radius: 7px;\n"
+            "    border-bottom-right-radius: 7px;\n"
+            "     subcontrol-position: bottom;\n"
+            "     subcontrol-origin: margin;\n"
+            " }\n"
+            " QScrollBar::sub-line:vertical {\n"
+            "	border: none;\n"
+            "    background: rgb(55, 63"
+                                    ", 77);\n"
+            "     height: 20px;\n"
+            "	border-top-left-radius: 7px;\n"
+            "    border-top-right-radius: 7px;\n"
+            "     subcontrol-position: top;\n"
+            "     subcontrol-origin: margin;\n"
+            " }\n"
+            " QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+            "     background: none;\n"
+            " }\n"
+            "\n"
+            " QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+            "     background: none;\n"
+            " }\n")
         self.ui_layers.setSelectionMode(QListWidget.NoSelection)
         # Criando o layout
         main_layout = QVBoxLayout(self)
