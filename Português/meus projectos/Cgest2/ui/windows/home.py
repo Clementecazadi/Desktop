@@ -20,7 +20,7 @@ class Block_dish_in_high(QFrame):
         self.dish_name.setWordWrap(True)
         self.commands = AdvencedLabel('Pedidos: 89', font_size=14)
         self.commands.setStyleSheet('background-color: #00000000; color: #ffffff')
-        self.price_of_dish = AdvencedLabel('Preso: 3500 kz', font_size=14)
+        self.price_of_dish = AdvencedLabel('Preço: 3500 kzs', font_size=14)
         self.price_of_dish.setStyleSheet('background-color: #00000000; color: #ffffff')
         # Elementos da taxa de conversão.
         self.tax_label = AdvencedLabel('Taxa:', font_size=14)
