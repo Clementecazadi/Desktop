@@ -1,5 +1,5 @@
 from PySide6.QtWidgets import QWidget, QFrame, QVBoxLayout, QSizePolicy, QHBoxLayout, QLabel, \
-    QProgressBar, QListWidget, QListWidgetItem
+    QProgressBar, QListWidget, QListWidgetItem, QScrollBar
 from PySide6.QtCore import Qt
 from ui.custome.Label import AdvencedLabel, get_font
 
@@ -48,7 +48,6 @@ class Block_dish_in_high(QFrame):
         self.tax_layout.addWidget(self.tax_label)
         self.tax_layout.addWidget(self.tax_progress)
         self.tax_layout.addWidget(self.tax_percent_label)
-
         # Criando layout para todos elementos que não o titulo do prato.
         self.elements = QVBoxLayout()
         self.elements.setContentsMargins(0, 0, 0, 0)
@@ -57,7 +56,6 @@ class Block_dish_in_high(QFrame):
         self.elements.addWidget(self.commands)
         self.elements.addWidget(self.price_of_dish)
         self.elements.addLayout(self.tax_layout)
-
         # Criando layout para o bloco inteiro
         self.block_layout = QVBoxLayout(self)
         self.block_layout.setContentsMargins(10, 10, 10, 10)
@@ -75,6 +73,8 @@ class Block_dish_manager(QWidget):
         self.ui_layers.setMovement(QListWidget.Static)
         self.ui_layers.setWordWrap(True)
         self.ui_layers.setVerticalScrollMode(QListWidget.ScrollPerPixel)
+        scrobar = QScrollBar()
+        scrobar.set
         #self.ui_layers.setVerticalScrollBar()
         self.ui_layers.setSelectionMode(QListWidget.NoSelection)
         # Criando o layout
