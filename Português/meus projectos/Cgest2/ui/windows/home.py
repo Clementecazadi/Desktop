@@ -75,7 +75,7 @@ class Block_dish_manager(QWidget):
         self.ui_layers.setMovement(QListWidget.Static)
         self.ui_layers.setWordWrap(True)
         self.ui_layers.setVerticalScrollMode(QListWidget.ScrollPerPixel)
-        self.ui_layers.setVerticalScrollBar()
+        #self.ui_layers.setVerticalScrollBar()
         self.ui_layers.setSelectionMode(QListWidget.NoSelection)
         # Criando o layout
         main_layout = QVBoxLayout(self)
