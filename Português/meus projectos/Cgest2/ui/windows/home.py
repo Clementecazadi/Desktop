@@ -6,7 +6,7 @@ from ui.custome.Label import AdvencedLabel, get_font
 
 # Criando widgets para o bloco de pratos em alta.
 class Block_dish_in_high(QFrame):
-    def __init__(self, dish_name:str = 'Desconhecido', commands:int = 0, dish_price:int = 0, tax:int = 0):
+    def __init__(self, dish_name:str = 'Desconhecido', orders:int = 0, dish_price:int = 0, tax:int = 0):
         super(Block_dish_in_high, self).__init__()
         self.setStyleSheet('background-color: qlineargradient'
         '(spread:pad, x1:0.519, y1:0, x2:0.5, y2:0.835, stop:0 rgba(128, 71, 213, 255), stop:1 '
@@ -18,8 +18,8 @@ class Block_dish_in_high(QFrame):
         font.setItalic(True)
         self.dish_name.setFont(font)
         self.dish_name.setWordWrap(True)
-        self.commands = AdvencedLabel(f'Pedidos: {commands}', font_size=14)
-        self.commands.setStyleSheet('background-color: #00000000; color: #ffffff')
+        self.order = AdvencedLabel(f'Pedidos: {orders}', font_size=14)
+        self.order.setStyleSheet('background-color: #00000000; color: #ffffff')
         self.price_of_dish = AdvencedLabel(f'Preço: {dish_price} kzs', font_size=14)
         self.price_of_dish.setStyleSheet('background-color: #00000000; color: #ffffff')
         # Elementos da taxa de conversão.
@@ -48,12 +48,12 @@ class Block_dish_in_high(QFrame):
         self.tax_layout.addWidget(self.tax_label)
         self.tax_layout.addWidget(self.tax_progress)
         self.tax_layout.addWidget(self.tax_percent_label)
-        # Criando layout para todos elementos que não o titulo do prato.
+        # Criando layout para todos elementos que não sejam o titulo do prato.
         self.elements = QVBoxLayout()
         self.elements.setContentsMargins(0, 0, 0, 0)
         self.elements.setSpacing(5)
         # Adicionando elementos no layout.
-        self.elements.addWidget(self.commands)
+        self.elements.addWidget(self.order)
         self.elements.addWidget(self.price_of_dish)
         self.elements.addLayout(self.tax_layout)
         # Criando layout para o bloco inteiro
@@ -133,13 +133,115 @@ class Block_dish_manager(QWidget):
             self.ui_layers.setItemWidget(item, widget)
             item.setSizeHint(widget.sizeHint())
 
-#class 
+class Block_order_active(QFrame):
+    def __init__(self, dish_name:str = 'Desconhecido', table_num:int = 0, enter_order:str = '23'):
+        super(Block_order_active, self).__init__()
+        # Definindo a core de fundo do widget
+        self.setStyleSheet('background-color: qlineargradient'
+        '(spread:pad, x1:0.519, y1:0, x2:0.5, y2:0.835, stop:0 rgba(128, 71, 213, 255), stop:1 '
+        'rgba(43, 19, 77, 255));')
+        # Criando elementos do bloco.
+        self.dish_name_order = QLabel(dish_name)
+        self.dish_name_order.setStyleSheet('background-color: #00000000; color: #ffffff')
+        font = get_font('JosefinSans-SemiBold.ttf', font_size=18)
+        font.setItalic(True)
+        self.dish_name_order.setFont(font)
+        self.dish_name_order.setWordWrap(True)
+        self.table = AdvencedLabel(f'Messa: {table_num}', font_size=14)
+        self.table.setStyleSheet('background-color: #00000000; color: #ffffff')
+        self.enter_order = AdvencedLabel(f'Entrada: {enter_order}', font_size=14)
+        self.enter_order.setStyleSheet('background-color: #00000000; color: #ffffff')
+        
+        # Criando layout para todos elementos que não sejam o titulo do prato.
+        self.elements = QVBoxLayout()
+        self.elements.setContentsMargins(0, 0, 0, 0)
+        self.elements.setSpacing(5)
+        # Adicionando elementos no layout.
+        self.elements.addWidget(self.table)
+        self.elements.addWidget(self.enter_order)
+         # Criando layout para o bloco inteiro
+        self.block_layout = QVBoxLayout(self)
+        
+        if len(dish_name) > 30:
+            self.block_layout.setSpacing(0)
+            self.block_layout.setContentsMargins(10, 10, 10, 10)
+        else:
+            self.block_layout.setSpacing(10)
+            self.block_layout.setContentsMargins(10, 20, 10, 10)
+        # Adicionando elementos ao layout
+        self.block_layout.addWidget(self.dish_name_order)
+        self.block_layout.addLayout(self.elements)
+
+        
+class Block_order_manager(QWidget):
+    def __init__(self):
+        super(Block_order_manager, self).__init__()
+        self.ui_layers = QListWidget()
+        self.ui_layers.setViewMode(QListWidget.ListMode)
+        self.ui_layers.setSpacing(5)
+        self.ui_layers.setMovement(QListWidget.Static)
+        self.ui_layers.setWordWrap(True)
+        self.ui_layers.setVerticalScrollMode(QListWidget.ScrollPerPixel)
+        self.ui_layers.setStyleSheet(""
+            " QScrollBar:vertical {\n"
+            "	border: none;\n"
+            "    background: rgb(52, 59, 72);\n"
+            "    width: 14px;\n"
+            "    margin: 21px 0 21px 0;\n"
+            "	border-radius: 0px;\n"
+            " }\n"
+            " QScrollBar::handle:vertical {	\n"
+            "	background: rgb(85, 170, 255);\n"
+            "    min-height: 25px;\n"
+            "	border-radius: 7px\n"
+            " }\n"
+            " QScrollBar::add-line:vertical {\n"
+            "     border: none;\n"
+            "    background: rgb(55, 63, 77);\n"
+            "     height: 20px;\n"
+            "	border-bottom-left-radius: 7px;\n"
+            "    border-bottom-right-radius: 7px;\n"
+            "     subcontrol-position: bottom;\n"
+            "     subcontrol-origin: margin;\n"
+            " }\n"
+            " QScrollBar::sub-line:vertical {\n"
+            "	border: none;\n"
+            "    background: rgb(55, 63"
+                                    ", 77);\n"
+            "     height: 20px;\n"
+            "	border-top-left-radius: 7px;\n"
+            "    border-top-right-radius: 7px;\n"
+            "     subcontrol-position: top;\n"
+            "     subcontrol-origin: margin;\n"
+            " }\n"
+            " QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
+            "     background: none;\n"
+            " }\n"
+            "\n"
+            " QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+            "     background: none;\n"
+            " }\n")
+        self.ui_layers.setSelectionMode(QListWidget.NoSelection)
+        # Criando o layout
+        main_layout = QVBoxLayout(self)
+        main_layout.addWidget(self.ui_layers)
+
+    def add_new_layers(self):
+        dados = (['Feigoada de borco', 7,'12h: 45min: 23sec'],
+                 ['Carne de pato assado com batatas fritas.', 9, '12h: 56min: 21sec'], 
+                 ['Sopa de futos do mar', 2, '13h: 20min: 15sec'])
+        for x in range(3):
+            widget = Block_order_active(dados[x][0], dados[x][1], dados[x][2])
+            item = QListWidgetItem()
+            self.ui_layers.insertItem(self.ui_layers.count(), item)
+            self.ui_layers.setItemWidget(item, widget)
+            item.setSizeHint(widget.sizeHint())
 
 class Page_home(QWidget):
     def __init__(self):
         super(Page_home, self).__init__()
         # Criando elementos para a home.
-        self.home_page_name_restaurante = AdvencedLabel('Restaurente Baia Verde', 'berkshire.ttf', 50)
+        self.home_page_name_restaurante = AdvencedLabel('Restaurante Baia Verde', 'berkshire.ttf', 50)
         self.home_page_name_restaurante.setAlignment(Qt.AlignHCenter)
         self.home_page_name_restaurante.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
         self.main_frame = QFrame()
@@ -171,11 +273,12 @@ class Page_home(QWidget):
         self.pedidos_ativos_title.setStyleSheet('color: #ffea65')
         self.pedidos_ativos_title.setSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
         self.pedidos_ativos_title.setAlignment(Qt.AlignHCenter)
-        self.pedidos_ativos_blocos = QFrame()
+        self.pedidos_ativos_blocos = Block_order_manager()
+        self.pedidos_ativos_blocos.add_new_layers()
         # Criando um layout para pedidos_ativos_frame
         self.pedidos_ativos_layout = QVBoxLayout(self.pedidos_ativos_frame)
         self.pedidos_ativos_layout.setSpacing(0)
-        self.pedidos_ativos_layout.setContentsMargins(0, 5, 0, 0)
+        self.pedidos_ativos_layout.setContentsMargins(0, 5, 0, 5)
         # Adicionaodo elementos a pedidos_ativos_layout
         self.pedidos_ativos_layout.addWidget(self.pedidos_ativos_title)
         self.pedidos_ativos_layout.addWidget(self.pedidos_ativos_blocos)
