@@ -6,21 +6,21 @@ from ui.custome.Label import AdvencedLabel, get_font
 
 # Criando widgets para o bloco de pratos em alta.
 class Block_dish_in_high(QFrame):
-    def __init__(self):
+    def __init__(self, dish_name:str = 'Desconhecido', commands:int = 0, dish_price:int = 0, tax:int = 0):
         super(Block_dish_in_high, self).__init__()
         self.setStyleSheet('background-color: qlineargradient'
         '(spread:pad, x1:0.519, y1:0, x2:0.5, y2:0.835, stop:0 rgba(128, 71, 213, 255), stop:1 '
         'rgba(43, 19, 77, 255));')
         # Criando elementos do bloco.
-        self.dish_name = QLabel('Carne de pato assado com batatas fritas.')
+        self.dish_name = QLabel(dish_name)
         self.dish_name.setStyleSheet('background-color: #00000000; color: #ffffff')
         font = get_font('JosefinSans-SemiBold.ttf', font_size=18)
         font.setItalic(True)
         self.dish_name.setFont(font)
         self.dish_name.setWordWrap(True)
-        self.commands = AdvencedLabel('Pedidos: 89', font_size=14)
+        self.commands = AdvencedLabel(f'Pedidos: {commands}', font_size=14)
         self.commands.setStyleSheet('background-color: #00000000; color: #ffffff')
-        self.price_of_dish = AdvencedLabel('Preço: 3500 kzs', font_size=14)
+        self.price_of_dish = AdvencedLabel(f'Preço: {dish_price} kzs', font_size=14)
         self.price_of_dish.setStyleSheet('background-color: #00000000; color: #ffffff')
         # Elementos da taxa de conversão.
         self.tax_label = AdvencedLabel('Taxa:', font_size=14)
@@ -28,7 +28,7 @@ class Block_dish_in_high(QFrame):
         self.tax_progress = QProgressBar()
         self.tax_progress.setMaximum(100)
         self.tax_progress.setMinimum(0)
-        self.tax_progress.setValue(82)
+        self.tax_progress.setValue(tax)
         self.tax_progress.setTextVisible(False)
         self.tax_progress.setMaximumHeight(5)
         self.tax_progress.setStyleSheet('''
@@ -38,7 +38,7 @@ class Block_dish_in_high(QFrame):
                 };
                 border-radius: 2px;
         ''')
-        self.tax_percent_label = AdvencedLabel('82%', font_size= 14)
+        self.tax_percent_label = AdvencedLabel(f'{tax}%', font_size= 14)
         self.tax_percent_label.setStyleSheet('background-color: #00000000; color: #ffffff')
         # Criando layout para os elementos TAX
         self.tax_layout = QHBoxLayout()
@@ -58,8 +58,13 @@ class Block_dish_in_high(QFrame):
         self.elements.addLayout(self.tax_layout)
         # Criando layout para o bloco inteiro
         self.block_layout = QVBoxLayout(self)
-        self.block_layout.setContentsMargins(10, 10, 10, 10)
-        self.block_layout.setSpacing(5)
+        
+        if len(dish_name) > 30:
+            self.block_layout.setSpacing(0)
+            self.block_layout.setContentsMargins(10, 10, 10, 10)
+        else:
+            self.block_layout.setSpacing(10)
+            self.block_layout.setContentsMargins(10, 20, 10, 10)
         # Adicionando elementos ao layout
         self.block_layout.addWidget(self.dish_name)
         self.block_layout.addLayout(self.elements)
@@ -118,8 +123,11 @@ class Block_dish_manager(QWidget):
         main_layout.addWidget(self.ui_layers)
 
     def add_new_layers(self):
+        dados = (['Carne de pato assado com batatas fritas.', 89, 3500, 82], 
+                 ['Feigoada de borco', 79, 3900, 75],
+                 ['Sopa de futos do mar', 70, 2000, 66])
         for x in range(3):
-            widget = Block_dish_in_high()
+            widget = Block_dish_in_high(dados[x][0], dados[x][1], dados[x][2], dados[x][3])
             item = QListWidgetItem()
             self.ui_layers.insertItem(self.ui_layers.count(), item)
             self.ui_layers.setItemWidget(item, widget)
