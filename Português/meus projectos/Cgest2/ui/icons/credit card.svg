@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="14mm"
+   height="14mm"
+   viewBox="0 0 14 14"
+   version="1.1"
+   id="svg1021"
+   inkscape:version="1.1.2 (0a00cf5, 2022-02-04)"
+   sodipodi:docname="cartão.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1023"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     height="14mm"
+     inkscape:zoom="11.206994"
+     inkscape:cx="30.293583"
+     inkscape:cy="27.259763"
+     inkscape:window-width="1440"
+     inkscape:window-height="844"
+     inkscape:window-x="0"
+     inkscape:window-y="20"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     showguides="true"
+     inkscape:guide-bbox="true">
+    <sodipodi:guide
+       position="12.217509,4.1546663"
+       orientation="0,-1"
+       id="guide11964" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1018" />
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       id="rect11581"
+       style="fill:#ffffff;stroke-width:0;-inkscape-stroke:none;stop-color:#000000"
+       d="M 2.0644531 12.517578 C 0.92070263 12.517578 5.9211895e-16 13.440234 0 14.583984 L 0 17.664062 L 52.914062 17.664062 L 52.914062 14.583984 C 52.914063 13.440234 51.99336 12.517578 50.849609 12.517578 L 2.0644531 12.517578 z M 0 24.183594 L 0 38.330078 C -5.9211893e-16 39.473829 0.92070263 40.394531 2.0644531 40.394531 L 50.849609 40.394531 C 51.99336 40.394531 52.914063 39.473829 52.914062 38.330078 L 52.914062 24.183594 L 0 24.183594 z M 2.7460938 33.154297 L 8.7089844 33.154297 L 8.7089844 37.210938 L 2.7460938 37.210938 L 2.7460938 33.154297 z M 10.673828 33.154297 L 16.636719 33.154297 L 16.636719 37.210938 L 10.673828 37.210938 L 10.673828 33.154297 z "
+       transform="scale(0.26458333)" />
+  </g>
+</svg>

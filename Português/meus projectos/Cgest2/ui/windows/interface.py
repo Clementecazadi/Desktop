@@ -3,7 +3,7 @@ from PySide6.QtWidgets import QMainWindow, QVBoxLayout, \
     QSpacerItem, QSizePolicy, QLabel
 from ui.custome.Label import AdvencedLabel, get_font
 from ui.custome.circleimage import mask_image
-from ui.custome.button import Button_custome
+from ui.custome.button import Button_custome_1
 from ui.windows.Pages import Pages
 
 
@@ -31,15 +31,15 @@ class Ui_iterface(object):
         self.left_button_frame_layout.setContentsMargins(0, 0, 0, 0)
         self.left_button_frame_layout.setSpacing(0)
         # 4.1 Criando elementos para layout de left button
-        self.menu_burger = Button_custome('Ocultar Menu', icon_path='menu_burger.svg')
-        self.left_button_home = Button_custome('Página Principal', icon_path='home.svg', is_active=True)
-        self.left_button_caixa = Button_custome('Caixa', icon_path='caixa.svg')
-        self.left_button_mesa = Button_custome('Mesas', icon_path='dining_table.svg')
-        self.left_button_pratos = Button_custome('Pratos', icon_path='dish.svg')
-        self.left_button_stoque = Button_custome('Stoque', icon_path='stock.svg')
-        self.left_button_statistica = Button_custome('Statisticas', icon_path='statistic.svg')
-        self.left_button_user = Button_custome('Usuários', icon_path='people.svg')
-        self.left_button_settings = Button_custome('Configurações', icon_path='settings.svg')
+        self.menu_burger = Button_custome_1('Ocultar Menu', icon_path='menu_burger.svg')
+        self.left_button_home = Button_custome_1('Página Principal', icon_path='home.svg', is_active=True)
+        self.left_button_caixa = Button_custome_1('Caixa', icon_path='caixa.svg')
+        self.left_button_mesa = Button_custome_1('Mesas', icon_path='dining_table.svg')
+        self.left_button_pratos = Button_custome_1('Pratos', icon_path='dish.svg')
+        self.left_button_stoque = Button_custome_1('Stoque', icon_path='stock.svg')
+        self.left_button_statistica = Button_custome_1('Statisticas', icon_path='statistic.svg')
+        self.left_button_user = Button_custome_1('Usuários', icon_path='people.svg')
+        self.left_button_settings = Button_custome_1('Configurações', icon_path='settings.svg')
         self.left_button_spacer = QSpacerItem(20, 20, QSizePolicy.Fixed, QSizePolicy.Expanding)
         self.left_button_frame_ene = QFrame()
         self.left_button_frame_ene.setMinimumHeight(30)
@@ -121,7 +121,7 @@ class Ui_iterface(object):
         self.top_user_rigth_frame_simple_view_spacer = QSpacerItem(10, 10, QSizePolicy.Expanding, QSizePolicy.Fixed)
         self.top_user_rigth_frame_simple_view_name_user = AdvencedLabel('Clemente Cazadi', font_size=14)
         self.top_user_rigth_frame_simple_view_name_user.setHidden(True)
-        self.top_user_rigth_frame_simple_view_button = Button_custome('', icon_path='hide_user_info.svg', ste=False,
+        self.top_user_rigth_frame_simple_view_button = Button_custome_1('', icon_path='hide_user_info.svg', ste=False,
                                                                       height=30, minimum_width=30)
         self.top_user_rigth_frame_simple_view_button.setStyleSheet("""
          QPushButton{
