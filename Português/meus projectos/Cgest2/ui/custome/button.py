@@ -91,8 +91,8 @@ class Button_custome_1(QPushButton):
 
 class Button_custome_2(QPushButton):
     def __init__(self, height = 70, width = 70, icon_path = '',
-                icon_color = '#ffffff', btn_color = '#397e72', btn_hover = '#56c0ac',
-                btn_pressed = '#2a5e55', is_active = False, ste = True):
+                icon_color = '#ffffff', btn_color = '#9955ff', btn_hover = '#a76cff',
+                btn_pressed = '#6c3cb4', is_active = False, ste = True):
         super(Button_custome_2, self).__init__()
         self.setFixedSize(width, height)
         self.icon_path = icon_path
@@ -114,6 +114,7 @@ class Button_custome_2(QPushButton):
         norlma = f"""
                     QPushButton{{
                         background-color: {self.btn_color};
+                        border-radius: 5px;
                         border: none;
                     }}
                     QPushButton:hover{{
@@ -124,7 +125,8 @@ class Button_custome_2(QPushButton):
                     }}
                 """
         active = f"""QPushButton{{
-                    background-color: #13252c;
+                    background-color: #fedb04;
+                    border-radius: 5px;
                     border: none;
             }} """      
                
@@ -153,7 +155,7 @@ class Button_custome_2(QPushButton):
         painter = QPainter(icon)
         painter.setCompositionMode(QPainter.CompositionMode_SourceIn)
         if self.is_active:
-            painter.fillRect(icon.rect(), '#8da7e8')
+            painter.fillRect(icon.rect(), '#397e72')
         else:
             painter.fillRect(icon.rect(), color)
         qp.drawPixmap((rect.width() - icon.width()) / 2, (rect.height() - icon.height())/2, icon)
