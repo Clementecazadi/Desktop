@@ -181,6 +181,8 @@ class caixa_page(QWidget):
         self.add_title.setAlignment(Qt.AlignCenter) 
         # -------
         self.add_text_show = QLabel('!23')
+        self.add_text_show.setAlignment(Qt.AlignRight)
+        self.add_text_show.setFont(get_font('JosefinSans-SemiBold.ttf', 48))
         self.add_buttons_layout = QGridLayout()
         self.add_buttons_layout.setObjectName(u"gridLayout")
         self.add_buttons_layout.setContentsMargins(0, 0, 0, 0)
@@ -199,6 +201,25 @@ class caixa_page(QWidget):
         self.add_button_0 = Button_custome_3('0')
         self.add_button_action = QPushButton()
         self.add_button_action.setText('Adiconar')
+        self.add_button_action.setFont(get_font('JosefinSans-SemiBold.ttf', 26))
+        self.add_button_action.setMinimumHeight(90)
+        self.add_button_action.setStyleSheet("""
+                QPushButton{
+                    color: #ffffff;
+                    background-color: qlineargradient(spread:pad, x1:0.505, y1:0, x2:0.5, y2:1, 
+                    stop:0 rgba(153, 85, 255, 255), stop:1 rgba(34, 0, 85, 255));
+                    border-radius: 5px;
+                    border: none;
+                }
+                QPushButton:hover{
+                    background-color: qlineargradient(spread:pad, x1:0.495, y1:0, x2:0.5, y2:1, 
+                    stop:0 rgba(169, 113, 255, 255), stop:1 rgba(58, 0, 144, 255));
+                }
+                QPushButton:pressed{
+                    background-color: qlineargradient(spread:pad, x1:0.496, y1:0.00568182, x2:0.524, y2:1, 
+                    stop:0 rgba(254, 229, 70, 255), stop:1 rgba(140, 123, 3, 255));
+                }
+        """)
 
 
         self.add_buttons_layout.addWidget(self.add_button_1, 0, 0, 1, 1)

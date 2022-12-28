@@ -192,7 +192,8 @@ class Button_custome_3(QPushButton):
                         border: none;
                     }}
                     QPushButton:hover{{
-                        background-color: {self.btn_hover};
+                        background-color: qlineargradient(spread:pad, x1:0.495, y1:0, x2:0.5, y2:1, 
+                        stop:0 rgba(169, 113, 255, 255), stop:1 rgba(58, 0, 144, 255));
                     }}
                     QPushButton:pressed{{
                         background-color:  {self.btn_pressed}
