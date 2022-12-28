@@ -160,3 +160,52 @@ class Button_custome_2(QPushButton):
             painter.fillRect(icon.rect(), color)
         qp.drawPixmap((rect.width() - icon.width()) / 2, (rect.height() - icon.height())/2, icon)
         painter.end()
+
+class Button_custome_3(QPushButton):
+    def __init__(self, text = '1', height = 90, width = 90, btn_color = '#9955ff', 
+                btn_hover = '#a76cff', btn_pressed = '#6c3cb4', 
+                is_active = False):
+        super(Button_custome_3, self).__init__()
+        self.setFixedSize(width, height)
+        self.setText(text)
+        self.setFont(get_font('JosefinSans-SemiBold.ttf', 44))
+        self.btn_color = btn_color
+        self.btn_hover = btn_hover
+        self.width = width
+        self.btn_pressed = btn_pressed
+        self.is_active = is_active
+        self.apstyle()
+
+    def set_active(self, value:bool):
+        if value == True or value == False:
+            self.is_active = value
+            self.apstyle()
+
+    def apstyle(self):
+        norlma = f"""
+                    QPushButton{{
+                        color: #ffffff;
+                        background-color: qlineargradient(spread:pad, x1:0.523, 
+                        y1:1, x2:0.514, y2:0, stop:0 rgba(0, 34, 43, 255),
+                         stop:1 rgba(55, 200, 171, 255));
+                        border-radius: 5px;
+                        border: none;
+                    }}
+                    QPushButton:hover{{
+                        background-color: {self.btn_hover};
+                    }}
+                    QPushButton:pressed{{
+                        background-color:  {self.btn_pressed}
+                    }}
+                """
+        active = f"""QPushButton{{
+                    background-color: #fedb04;
+                    border-radius: 5px;
+                    border: none;
+            }} """      
+               
+        if self.is_active:
+            # self.setStyleSheet(norlma + active)
+            self.setStyleSheet(active)
+        else:
+            self.setStyleSheet(norlma)

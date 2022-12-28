@@ -1,8 +1,8 @@
 from PySide6.QtWidgets import QWidget, QFrame, QVBoxLayout, QSizePolicy, QHBoxLayout, QLabel, \
     QProgressBar, QListWidget, QListWidgetItem, QScrollBar, QStackedWidget, QTreeWidget, QTreeWidgetItem,\
-    QHeaderView
+    QHeaderView, QGridLayout, QPushButton
 from PySide6.QtCore import Qt
-from ui.custome.button import Button_custome_2
+from ui.custome.button import Button_custome_2, Button_custome_3
 from ui.custome.Label import get_font, AdvencedLabel
 
 class caixa_page(QWidget):
@@ -171,15 +171,52 @@ class caixa_page(QWidget):
         self.add_thinks = QWidget()
 
         # Criando um layout para add_thinks.
-        self.add_thinks_layout = QVBoxLayout(self.add_thinks)
-        self.add_thinks_layout.setContentsMargins(10, 10, 10, 10)
-        self.add_thinks_layout.setSpacing(5)
+        self.add_things_layout = QVBoxLayout(self.add_thinks)
+        self.add_things_layout.setContentsMargins(25, 10, 25, 15)
+        self.add_things_layout.setSpacing(5)
 
         # Criando elementos para add_things
         self.add_title = AdvencedLabel("Adicionar produtos", path="berkshire.ttf", 
-                                        font_size=18, ) 
+                                        font_size=24, color='#fedb04')
+        self.add_title.setAlignment(Qt.AlignCenter) 
+        # -------
+        self.add_text_show = QLabel('!23')
+        self.add_buttons_layout = QGridLayout()
+        self.add_buttons_layout.setObjectName(u"gridLayout")
+        self.add_buttons_layout.setContentsMargins(0, 0, 0, 0)
+        self.add_buttons_layout.setSpacing(10)
+
+        # Criando os botões para buttons_layout
+        self.add_button_1 = Button_custome_3()
+        self.add_button_2 = Button_custome_3('2')
+        self.add_button_3 = Button_custome_3('3')
+        self.add_button_4 = Button_custome_3('4')
+        self.add_button_5 = Button_custome_3('5')
+        self.add_button_6 = Button_custome_3('6')
+        self.add_button_7 = Button_custome_3('7')
+        self.add_button_8 = Button_custome_3('8')
+        self.add_button_9 = Button_custome_3('9')
+        self.add_button_0 = Button_custome_3('0')
+        self.add_button_action = QPushButton()
+        self.add_button_action.setText('Adiconar')
+
+
+        self.add_buttons_layout.addWidget(self.add_button_1, 0, 0, 1, 1)
+        self.add_buttons_layout.addWidget(self.add_button_2, 0, 1, 1, 1)
+        self.add_buttons_layout.addWidget(self.add_button_3, 0, 2, 1, 1)
+        self.add_buttons_layout.addWidget(self.add_button_4, 1, 0, 1, 1)
+        self.add_buttons_layout.addWidget(self.add_button_5, 1, 1, 1, 1)
+        self.add_buttons_layout.addWidget(self.add_button_6, 1, 2, 1, 1)
+        self.add_buttons_layout.addWidget(self.add_button_7, 2, 0, 1, 1)
+        self.add_buttons_layout.addWidget(self.add_button_8, 2, 1, 1, 1)
+        self.add_buttons_layout.addWidget(self.add_button_9, 2, 2, 1, 1)
+        self.add_buttons_layout.addWidget(self.add_button_0, 3, 0, 1, 1)
+        self.add_buttons_layout.addWidget(self.add_button_action, 3, 1, 1, 2)
+
         
-        self.add_thinks_layout.addWidget(self.add_title)
+        self.add_things_layout.addWidget(self.add_title)
+        self.add_things_layout.addWidget(self.add_text_show)
+        self.add_things_layout.addLayout(self.add_buttons_layout)
 
         self.right_widget.addWidget(self.add_thinks)
         

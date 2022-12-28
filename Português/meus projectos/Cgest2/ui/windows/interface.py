@@ -35,7 +35,7 @@ class Ui_iterface(object):
         self.left_button_home = Button_custome_1('Página Principal', icon_path='home.svg', is_active=True)
         self.left_button_caixa = Button_custome_1('Caixa', icon_path='caixa.svg')
         self.left_button_mesa = Button_custome_1('Mesas', icon_path='dining_table.svg')
-        self.left_button_pratos = Button_custome_1('Pratos', icon_path='dish.svg')
+        self.left_button_pratos = Button_custome_1('Produtos', icon_path='dish.svg')
         self.left_button_stoque = Button_custome_1('Stoque', icon_path='stock.svg')
         self.left_button_statistica = Button_custome_1('Statisticas', icon_path='statistic.svg')
         self.left_button_user = Button_custome_1('Usuários', icon_path='people.svg')
