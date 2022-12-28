@@ -1,7 +1,7 @@
 from PySide6.QtWidgets import QWidget, QStackedWidget, QFrame, QVBoxLayout, QSizePolicy
 from PySide6.QtCore import Qt
 from ui.windows.home import Page_home
-from ui.windows.caixa import caixa_page
+from ui.windows.cash import caixa_page
 
 
 class Pages(QStackedWidget):

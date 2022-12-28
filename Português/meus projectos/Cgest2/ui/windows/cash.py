@@ -12,7 +12,7 @@ class caixa_page(QWidget):
         self.main_layout = QHBoxLayout(self)
         self.main_layout.setContentsMargins(15, 15, 15, 15)
         self.main_layout.setSpacing(15)
-        # Criando o layout secundario.
+        # Criando o layouts secundarios.
         self.left_layout = QVBoxLayout()
         # Criando a parte direito do layout para adicionar produtos e quantias.
         self.right_widget = QStackedWidget()
@@ -45,11 +45,10 @@ class caixa_page(QWidget):
         self.left_button_layout.addWidget(self.bill_wait_list)
         self.left_button_layout.addWidget(self.facture)
         self.left_button_layout.addWidget(self.cancel_bill)
-
+        # Criando uma lisa de produtos para left_layout.
         self.product_list = QTreeWidget()
         self.header = QHeaderView(Qt.Horizontal)
         self.header.setFont(get_font('JosefinSans-SemiBold.ttf', 18))
-        #self.header.setSectionsMovable(False)
         self.header.setSectionResizeMode(QHeaderView.Stretch)
         self.product_list.setHeader(self.header)
         self.product_list.setHeaderLabels(['Codigo', 'Nome do Prod.', 'Quantia', 'Preço'])
@@ -133,6 +132,7 @@ class caixa_page(QWidget):
                 item.setTextAlignment(x, Qt.AlignCenter)
                 item.setToolTip(1, item.text(1))
 
+        # Criando as lable para mostras detalhes da venda.
         self.purchase_details_main_layout = QHBoxLayout()
         self.purchase_details_main_layout.setContentsMargins(0, 0, 0, 0)
         self.purchase_details_main_layout.setSpacing(0)
@@ -157,10 +157,29 @@ class caixa_page(QWidget):
         self.purchase_details_layout_2.addWidget(self.cliente_money_lable)
         self.purchase_details_layout_2.addWidget(self.customer_change_lable)
 
-
+        # Adicionado os detalhes para o layout.
         self.purchase_details_main_layout.addLayout(self.purchase_details_layout_1)
         self.purchase_details_main_layout.addLayout(self.purchase_details_layout_2)
         # Adicionado Elmenetos ao layout left_layout 
         self.left_layout.addLayout(self.left_button_layout)
         self.left_layout.addWidget(self.product_list)
         self.left_layout.addLayout(self.purchase_details_main_layout)
+
+        # Criando elementos para right_widget.
+
+        # Janela para adicionar produtos e mesas.
+        self.add_thinks = QWidget()
+
+        # Criando um layout para add_thinks.
+        self.add_thinks_layout = QVBoxLayout(self.add_thinks)
+        self.add_thinks_layout.setContentsMargins(10, 10, 10, 10)
+        self.add_thinks_layout.setSpacing(5)
+
+        # Criando elementos para add_things
+        self.add_title = AdvencedLabel("Adicionar produtos", path="berkshire.ttf", 
+                                        font_size=18, ) 
+        
+        self.add_thinks_layout.addWidget(self.add_title)
+
+        self.right_widget.addWidget(self.add_thinks)
+        
