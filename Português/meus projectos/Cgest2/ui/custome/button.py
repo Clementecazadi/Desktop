@@ -54,7 +54,7 @@ class Button_custome_1(QPushButton):
                     padding-left: {self.text_padding}px;
                     text-align: left; 
                     border: none;
-                    border-left: 4px solid #fedb04;
+                    border-left: 4px solid #fee546;
             }} """      
                
         if self.is_active:
@@ -125,7 +125,7 @@ class Button_custome_2(QPushButton):
                     }}
                 """
         active = f"""QPushButton{{
-                    background-color: #fedb04;
+                    background-color: #fee546;
                     border-radius: 5px;
                     border: none;
             }} """      
@@ -164,11 +164,12 @@ class Button_custome_2(QPushButton):
 class Button_custome_3(QPushButton):
     def __init__(self, text = '1', height = 90, width = 90, btn_color = '#9955ff', 
                 btn_hover = '#a76cff', btn_pressed = '#6c3cb4', 
-                is_active = False):
+                is_active = False, shortcut='0'):
         super(Button_custome_3, self).__init__()
         self.setFixedSize(width, height)
         self.setText(text)
         self.setFont(get_font('JosefinSans-SemiBold.ttf', 44))
+        self.setShortcut(shortcut)
         self.btn_color = btn_color
         self.btn_hover = btn_hover
         self.width = width
