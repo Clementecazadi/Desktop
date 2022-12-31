@@ -1,0 +1,6 @@
+print('cobrador de alugel de carro CANC™')
+dia = int(input('quantos dia vôce alugo o carro '))
+km = float(input('quantos km voce percoreu com o carro '))
+cl = (dia * 60) + (km * 0.15)
+des = cl - (cl * 10 / 100)
+print(f'O valor a se pagar pelo alugel do carro é {cl:.2f} kzs\nCom desconto de 10% valor do alugel fica {des:.2f} kzs')

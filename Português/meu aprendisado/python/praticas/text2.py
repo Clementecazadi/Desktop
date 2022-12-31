@@ -1,0 +1,8 @@
+nome = input('Qual é o seu nome?')
+print('Olá {}!'.format(nome))
+print('Olá {:.3}!'.format(nome))
+print('Olá {:20}!'.format(nome))
+print('Olá {:<20}!'.format(nome))
+print('Olá {:>20}!'.format(nome))
+print('Olá {:^20}!'.format(nome))
+print('Olá {:#^20}!'.format(nome))

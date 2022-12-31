@@ -1,0 +1,5 @@
+print('ola eu seu o robou clement por favor escreva a sua data de nacimento')
+dia = input('dia=')
+mes = input('mes=')
+ano = input('ano=')
+print('voce nasceu no dia', dia, 'no mes de', mes, 'no ano de', ano, 'coreto!')
