@@ -136,7 +136,6 @@ class caixa_page(QWidget):
         self.purchase_details_main_layout = QHBoxLayout()
         self.purchase_details_main_layout.setContentsMargins(0, 0, 0, 0)
         self.purchase_details_main_layout.setSpacing(0)
-
         self.purchase_details_layout_1 = QVBoxLayout()
         self.purchase_details_layout_1.setContentsMargins(0, 0, 0, 0)
         self.purchase_details_layout_1.setSpacing(10)
@@ -146,7 +145,7 @@ class caixa_page(QWidget):
         self.purchase_details_layout_1.addWidget(self.dining_table_lable)
         self.purchase_details_layout_1.addWidget(self.total_price_lable)
         self.purchase_details_layout_1.addWidget(self.tax_lable)
-
+        #------
         self.purchase_details_layout_2 = QVBoxLayout()
         self.purchase_details_layout_2.setContentsMargins(0, 0, 0, 0)
         self.purchase_details_layout_2.setSpacing(10)
@@ -203,30 +202,22 @@ class caixa_page(QWidget):
         self.add_button_8 = Button_custome_3('8', shortcut='8')
         self.add_button_9 = Button_custome_3('9', shortcut='9')
         self.add_button_0 = Button_custome_3('0', shortcut='0')
-        self.add_button_backspace = QPushButton()
-        self.add_button_backspace.setText('A')
+        self.add_button_backspace = Button_custome_2(height= 90, width= 90, icon_path="backspace.svg",
+            btn_color= 'qlineargradient(spread:pad, x1:0.505, y1:0, x2:0.5, y2:1,' 
+                        'stop:0 rgba(153, 85, 255, 255), stop:1 rgba(34, 0, 85, 255))',
+            btn_hover='qlineargradient(spread:pad, x1:0.495, y1:0, x2:0.5, y2:1,'
+                        'stop:0 rgba(169, 113, 255, 255), stop:1 rgba(58, 0, 144, 255))',
+            btn_pressed= 'qlineargradient(spread:pad, x1:0.496, y1:0.00568182, x2:0.524, y2:1,'
+                        'stop:0 rgba(254, 229, 70, 255), stop:1 rgba(140, 123, 3, 255));')
         self.add_button_backspace.setShortcut('backspace')
-        self.add_button_backspace.setFont(get_font('JosefinSans-SemiBold.ttf', 26))
-        self.add_button_backspace.setMinimumHeight(90)
-        self.add_button_backspace.setStyleSheet("""
-                QPushButton{
-                    color: #ffffff;
-                    background-color: qlineargradient(spread:pad, x1:0.505, y1:0, x2:0.5, y2:1, 
-                    stop:0 rgba(153, 85, 255, 255), stop:1 rgba(34, 0, 85, 255));
-                    border-radius: 5px;
-                    border: none;
-                }
-                QPushButton:hover{
-                    background-color: qlineargradient(spread:pad, x1:0.495, y1:0, x2:0.5, y2:1, 
-                    stop:0 rgba(169, 113, 255, 255), stop:1 rgba(58, 0, 144, 255));
-                }
-                QPushButton:pressed{
-                    background-color: qlineargradient(spread:pad, x1:0.496, y1:0.00568182, x2:0.524, y2:1, 
-                    stop:0 rgba(254, 229, 70, 255), stop:1 rgba(140, 123, 3, 255));
-                }
-        """)
-
-
+        self.add_button_enter = Button_custome_2(height= 90, width= 90, icon_path="enter.svg",
+            btn_color= 'qlineargradient(spread:pad, x1:0.505, y1:0, x2:0.5, y2:1,' 
+                        'stop:0 rgba(153, 85, 255, 255), stop:1 rgba(34, 0, 85, 255))',
+            btn_hover='qlineargradient(spread:pad, x1:0.495, y1:0, x2:0.5, y2:1,'
+                        'stop:0 rgba(169, 113, 255, 255), stop:1 rgba(58, 0, 144, 255))',
+            btn_pressed= 'qlineargradient(spread:pad, x1:0.496, y1:0.00568182, x2:0.524, y2:1,'
+                        'stop:0 rgba(254, 229, 70, 255), stop:1 rgba(140, 123, 3, 255));')
+        self.add_button_enter.setShortcut('return')
         self.add_buttons_layout.addWidget(self.add_button_1, 0, 0, 1, 1)
         self.add_buttons_layout.addWidget(self.add_button_2, 0, 1, 1, 1)
         self.add_buttons_layout.addWidget(self.add_button_3, 0, 2, 1, 1)
@@ -238,14 +229,16 @@ class caixa_page(QWidget):
         self.add_buttons_layout.addWidget(self.add_button_9, 2, 2, 1, 1)
         self.add_buttons_layout.addWidget(self.add_button_0, 3, 0, 1, 1)
         self.add_buttons_layout.addWidget(self.add_button_backspace, 3, 1, 1, 1)
-
-        # Criando um spacer
+        self.add_buttons_layout.addWidget(self.add_button_enter, 3, 2, 1, 1)
+        # Criando um  item de spacer.
         self.add_spacer = QSpacerItem(5, 1, QSizePolicy.Fixed, QSizePolicy.Expanding)
-        
+
+        # Adicionando elementos ao layout add_things.
         self.add_things_layout.addWidget(self.add_title)
         self.add_things_layout.addWidget(self.add_text_show)
         self.add_things_layout.addLayout(self.add_buttons_layout)
         self.add_things_layout.addItem(self.add_spacer)
 
+        # Adicionado elementos a QStrackeWidget right_widget.
         self.right_widget.addWidget(self.add_thinks)
         

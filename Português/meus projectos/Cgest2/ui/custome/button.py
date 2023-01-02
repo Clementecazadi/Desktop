@@ -99,7 +99,7 @@ class Button_custome_2(QPushButton):
         self.icon_color = icon_color
         self.btn_color = btn_color
         self.btn_hover = btn_hover
-        self.width = width
+        self.my_width = width
         self.btn_pressed = btn_pressed
         self.is_active = is_active
         if ste:
@@ -142,7 +142,7 @@ class Button_custome_2(QPushButton):
         qp.begin(self) 
         qp.setRenderHint(QPainter.Antialiasing)
         qp.setPen(Qt.NoPen)
-        rect = QRect(0, 0, 70, self.height())
+        rect = QRect(0, 0, self.my_width, self.height())
         self.draw_icon(qp, self.icon_path, self.icon_color, rect)
         qp.end()
 
