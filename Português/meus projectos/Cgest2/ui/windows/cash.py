@@ -136,23 +136,25 @@ class caixa_page(QWidget):
         self.purchase_details_main_layout = QHBoxLayout()
         self.purchase_details_main_layout.setContentsMargins(0, 0, 0, 0)
         self.purchase_details_main_layout.setSpacing(0)
+        #self.purchase_details_main_layout.
         self.purchase_details_layout_1 = QVBoxLayout()
         self.purchase_details_layout_1.setContentsMargins(0, 0, 0, 0)
         self.purchase_details_layout_1.setSpacing(10)
+        self.service_id = AdvencedLabel('ID do servico: 0125', font_size=16)
         self.dining_table_lable = AdvencedLabel('Mesa: 6', font_size=16)
-        self.total_price_lable = AdvencedLabel('Preço total: 9250 Kzs', font_size=16)
-        self.tax_lable = AdvencedLabel('Iva: 14%', font_size=16)
+        self.final_price = AdvencedLabel('Preço Final: 10345 Kzs', font_size=16)
+
+        self.purchase_details_layout_1.addWidget(self.service_id)
         self.purchase_details_layout_1.addWidget(self.dining_table_lable)
-        self.purchase_details_layout_1.addWidget(self.total_price_lable)
-        self.purchase_details_layout_1.addWidget(self.tax_lable)
+        self.purchase_details_layout_1.addWidget(self.final_price)
         #------
         self.purchase_details_layout_2 = QVBoxLayout()
         self.purchase_details_layout_2.setContentsMargins(0, 0, 0, 0)
         self.purchase_details_layout_2.setSpacing(10)
-        self.final_price = AdvencedLabel('Preço Final: 10345 Kzs', font_size=16)
+        
         self.cliente_money_lable = AdvencedLabel('Dinheiro: 11000 Kzs', font_size=16)
         self.customer_change_lable = AdvencedLabel('Troco do cliente: 655 Kzs', font_size=16)
-        self.purchase_details_layout_2.addWidget(self.final_price)
+        
         self.purchase_details_layout_2.addWidget(self.cliente_money_lable)
         self.purchase_details_layout_2.addWidget(self.customer_change_lable)
 
@@ -164,11 +166,10 @@ class caixa_page(QWidget):
         self.left_layout.addWidget(self.product_list)
         self.left_layout.addLayout(self.purchase_details_main_layout)
 
-        # Criando elementos para right_widget.
+        # Criando paginas para right_widget.
 
-        # Janela para adicionar produtos e mesas.
+        # Pagina para adicionar coisas (produtos e mesas).
         self.add_thinks = QWidget()
-
         # Criando um layout para add_thinks.
         self.add_things_layout = QVBoxLayout(self.add_thinks)
         self.add_things_layout.setContentsMargins(25, 15, 25, 15)
@@ -232,13 +233,70 @@ class caixa_page(QWidget):
         self.add_buttons_layout.addWidget(self.add_button_enter, 3, 2, 1, 1)
         # Criando um  item de spacer.
         self.add_spacer = QSpacerItem(5, 1, QSizePolicy.Fixed, QSizePolicy.Expanding)
-
         # Adicionando elementos ao layout add_things.
         self.add_things_layout.addWidget(self.add_title)
         self.add_things_layout.addWidget(self.add_text_show)
         self.add_things_layout.addLayout(self.add_buttons_layout)
         self.add_things_layout.addItem(self.add_spacer)
+        # Criando outra pagina para right_widget, uma lista de espera.
+        self.wait_list = QWidget()
+        self.wait_qtree = QTreeWidget()
+        self.header2 = QHeaderView(Qt.Horizontal)
+        self.header2.setFont(get_font('JosefinSans-SemiBold.ttf', 18))
+        self.header2.setSectionResizeMode(QHeaderView.Stretch)
+        self.wait_qtree.setHeader(self.header2)
+        self.wait_qtree.setStyleSheet(
+            "QTreeWidget {	\n"
+        "   color: #ffffff;"
+        "   text-align: center;"
+        "	background-color: #0c0c0c;\n"
+        "	border-radius: 5px;\n"
+        "}\n"
+        "QTreeWidget::item{\n"
+        "   height:35px;"
+        "	padding-left: 5px;\n"
+        "}\n"
+        "QTreeWidget::item:selected{\n"
+        "	background-color: #35c2a6;}\n"
+        "QTableWidget::horizontalHeader {	\n"
+        "	background-color: rgb(81, 255, 0);\n"
+        "}\n"
+        "QHeaderView::section:horizontal\n"
+        "{\n"
+        "   border: 1px solid rgb(32, 34, 42);\n"
+        "	background-color: #9955ff;\n"
+        "   width: 10px;\n"
+        "   height: 30px;"
+        "   color: #ffffff;"
+        "	padding: 10px;\n"
+        "}")
+        self.wait_qtree.setHeaderLabels(('ID', 'Data'))
+        self.wait_qtree.setFont(get_font('JosefinSans-SemiBold.ttf', 14))
+        listas = [['00011', '12:50:45'], 
+        ['-- 00012', '13:00:20'], ['00013', '13:30:50']]
+        for x in range(3):
+            item = QTreeWidgetItem(self.wait_qtree, listas[x])
+            for x in range(4):
+                item.setTextAlignment(x, Qt.AlignCenter)
+
+        self.wait_button_recharge = Button_custome_2(icon_path='recharge.svg')
+        self.wait_button_delete = Button_custome_2(icon_path='cancel.svg')
+        # Criando um layout para mostrar botões.
+        self.wait_buttons_layout = QHBoxLayout()
+        self.wait_buttons_layout.setContentsMargins(10, 10, 10, 15)
+        # Adicionando botões para o layout.
+        self.wait_buttons_layout.addWidget(self.wait_button_recharge)
+        self.wait_buttons_layout.addWidget(self.wait_button_delete)  
+        # Criando um layout para wait_list.
+        self.wait_list_layout = QVBoxLayout(self.wait_list)
+        # Adicionando elementos para wait_list_layout.
+        self.wait_list_layout.addWidget(self.wait_qtree)
+        self.wait_list_layout.addLayout(self.wait_buttons_layout)
+
 
         # Adicionado elementos a QStrackeWidget right_widget.
         self.right_widget.addWidget(self.add_thinks)
+        self.right_widget.addWidget(self.wait_list)
+
+        self.right_widget.setCurrentIndex(1)
         
