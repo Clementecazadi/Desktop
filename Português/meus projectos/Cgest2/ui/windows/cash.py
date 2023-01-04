@@ -1,9 +1,11 @@
 from PySide6.QtWidgets import QWidget, QFrame, QVBoxLayout, QSizePolicy, QHBoxLayout, QLabel, \
-    QProgressBar, QListWidget, QListWidgetItem, QScrollBar, QStackedWidget, QTreeWidget, QTreeWidgetItem,\
-    QHeaderView, QGridLayout, QPushButton, QSpacerItem, QLineEdit
+    QProgressBar, QListWidgetItem, QScrollBar, QStackedWidget, QTreeWidget, QTreeWidgetItem,\
+    QHeaderView, QGridLayout, QPushButton, QSpacerItem
 from PySide6.QtCore import Qt
+from PySide6.QtGui import QPixmap
 from ui.custome.button import Button_custome_2, Button_custome_3
 from ui.custome.Label import get_font, AdvencedLabel
+from ui.custome.path import path_local
 
 class caixa_page(QWidget):
     def __init__(self):
@@ -170,6 +172,30 @@ class caixa_page(QWidget):
 
         # Criando paginas para right_widget.
 
+        # Pagina zero quando nehuma opção for selecionada.
+        self.first_page = QWidget()
+        self.first_page.setStyleSheet('background: #6c3cb4;')
+        # Adicionando uma imagem com QPixmap.
+        self.cash_image = QPixmap(path_local('cozinhera.png'))
+        self.cash_image = self.cash_image.scaled(330, 450, Qt.KeepAspectRatio, Qt.SmoothTransformation)
+        self.cash_image_label = QLabel()
+        self.cash_image_label.setPixmap(self.cash_image)
+
+        self.label_1 = AdvencedLabel("Escolha uma opção", path="berkshire.ttf", 
+                                            font_size=28)
+        self.label_1.setAlignment(Qt.AlignCenter)
+        self.spacer1 = QSpacerItem(5, 5, QSizePolicy.Fixed, QSizePolicy.Expanding)
+        self.spacer2 = QSpacerItem(5, 5, QSizePolicy.Fixed, QSizePolicy.Expanding)
+
+
+        self.first_page_layout = QVBoxLayout(self.first_page)
+        self.first_page_layout.setSpacing(15)
+        self.first_page_layout.addItem(self.spacer1)
+        self.first_page_layout.addWidget(self.cash_image_label)
+        self.first_page_layout.addWidget(self.label_1)
+        self.first_page_layout.addItem(self.spacer2)
+
+
         # Pagina para adicionar coisas (produtos e mesas).
         self.add_thinks = QWidget()
         # Criando um layout para add_thinks.
@@ -299,18 +325,18 @@ class caixa_page(QWidget):
         self.facture_page = QWidget()
         # Criando elementos para pagina de faturação.
         self.facture_title = AdvencedLabel("Faturar a compra", path="berkshire.ttf", 
-                                        font_size=28, color='#fee546')
+                                            font_size=28, color='#fee546')
         self.facture_title.setAlignment(Qt.AlignCenter)
-        self.fact_details_lable = AdvencedLabel("Detalhes da Compra", font_size=18)
-        self.fact_details_lable.setAlignment(Qt.AlignCenter)
+        self.fact_details_label = AdvencedLabel("Detalhes da Compra", font_size=18)
+        self.fact_details_label.setAlignment(Qt.AlignCenter)
         self.fact_final_price = AdvencedLabel("Preço final: 10345 Kzs", font_size=14)
         # Criando um layout para detalhes da compra.
         self.fact_details_layout = QVBoxLayout()
-        self.fact_details_layout.addWidget(self.fact_details_lable)
+        self.fact_details_layout.addWidget(self.fact_details_label)
         self.fact_details_layout.addWidget(self.fact_final_price)
 
-        self.fact_pay_methods_lable = AdvencedLabel('Métodos de Pagamentos', font_size=18)
-        self.fact_pay_methods_lable.setAlignment(Qt.AlignCenter)
+        self.fact_pay_methods_label = AdvencedLabel('Métodos de Pagamentos', font_size=18)
+        self.fact_pay_methods_label.setAlignment(Qt.AlignCenter)
         self.fact_pay_methods_button1 = Button_custome_2(icon_path='money.svg')
         self.fact_pay_methods_button2 = Button_custome_2(icon_path= 'credit card.svg')
         # Criando um layout para botões de pagamentos.
@@ -319,7 +345,7 @@ class caixa_page(QWidget):
         self.fact_pay_buttons_layout.addWidget(self.fact_pay_methods_button2)
         # Criando um layout para métodos de pagamentos.
         self.fact_pay_methods_layout = QVBoxLayout()
-        self.fact_pay_methods_layout.addWidget(self.fact_pay_methods_lable)
+        self.fact_pay_methods_layout.addWidget(self.fact_pay_methods_label)
         self.fact_pay_methods_layout.addLayout(self.fact_pay_buttons_layout)
         
         self.finish_facture = Button_custome_3('Finalizar', 60, 250, shortcut='return', font_size=28)
@@ -338,11 +364,13 @@ class caixa_page(QWidget):
         self.facture_layout.addLayout(self.finish_facture_layoout)
 
         # Adicionado elementos a QStrackeWidget right_widget.
+        self.right_widget.addWidget(self.first_page)
         self.right_widget.addWidget(self.add_thinks)
         self.right_widget.addWidget(self.wait_list)
         self.right_widget.addWidget(self.facture_page)
 
         # Criando funções personalizadas
+        """
         def selection_animation(self, button_id:int = 0):
             # Recetando todos os botões.
             for btn in self.left_button_frame.findChildren(QPushButton):
@@ -358,6 +386,6 @@ class caixa_page(QWidget):
                 self.main_cotente.setCurrentIndex(1)
             elif button_id == 3:
                 self.left_button_mesa.set_active(True)
-
+"""
         self.right_widget.setCurrentIndex(0)
         
