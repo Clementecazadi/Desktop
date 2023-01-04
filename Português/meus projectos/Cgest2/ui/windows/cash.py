@@ -154,9 +154,11 @@ class caixa_page(QWidget):
         
         self.cliente_money_lable = AdvencedLabel('Dinheiro: 11000 Kzs', font_size=16)
         self.customer_change_lable = AdvencedLabel('Troco do cliente: 655 Kzs', font_size=16)
-        
+        self.customer_stat_lable = AdvencedLabel('', font_size=16)
+
         self.purchase_details_layout_2.addWidget(self.cliente_money_lable)
         self.purchase_details_layout_2.addWidget(self.customer_change_lable)
+        self.purchase_details_layout_2.addWidget(self.customer_stat_lable)
 
         # Adicionado os detalhes para o layout.
         self.purchase_details_main_layout.addLayout(self.purchase_details_layout_1)
@@ -174,10 +176,9 @@ class caixa_page(QWidget):
         self.add_things_layout = QVBoxLayout(self.add_thinks)
         self.add_things_layout.setContentsMargins(25, 15, 25, 15)
         self.add_things_layout.setSpacing(20)
-
         # Criando elementos para add_things
         self.add_title = AdvencedLabel("Adicionar produtos", path="berkshire.ttf", 
-                                        font_size=24, color='#fee546')
+                                        font_size=28, color='#fee546')
         self.add_title.setAlignment(Qt.AlignCenter) 
         # -------
         self.add_text_show = QLabel('56330')
@@ -191,7 +192,6 @@ class caixa_page(QWidget):
         self.add_buttons_layout.setObjectName(u"gridLayout")
         self.add_buttons_layout.setContentsMargins(0, 0, 0, 0)
         self.add_buttons_layout.setSpacing(10)
-
         # Criando os botões para buttons_layout
         self.add_button_1 = Button_custome_3('1', shortcut='1')
         self.add_button_2 = Button_custome_3('2', shortcut='2')
@@ -238,6 +238,8 @@ class caixa_page(QWidget):
         self.add_things_layout.addWidget(self.add_text_show)
         self.add_things_layout.addLayout(self.add_buttons_layout)
         self.add_things_layout.addItem(self.add_spacer)
+
+
         # Criando outra pagina para right_widget, uma lista de espera.
         self.wait_list = QWidget()
         self.wait_qtree = QTreeWidget()
@@ -273,7 +275,7 @@ class caixa_page(QWidget):
         self.wait_qtree.setHeaderLabels(('ID', 'Data'))
         self.wait_qtree.setFont(get_font('JosefinSans-SemiBold.ttf', 14))
         listas = [['00011', '12:50:45'], 
-        ['-- 00012', '13:00:20'], ['00013', '13:30:50']]
+        ['- 00012 -', '13:00:20'], ['00013', '13:30:50']]
         for x in range(3):
             item = QTreeWidgetItem(self.wait_qtree, listas[x])
             for x in range(4):
@@ -293,10 +295,69 @@ class caixa_page(QWidget):
         self.wait_list_layout.addWidget(self.wait_qtree)
         self.wait_list_layout.addLayout(self.wait_buttons_layout)
 
+        # Criando outra pagina para right_widget, uma pagina para faturar a compra.
+        self.facture_page = QWidget()
+        # Criando elementos para pagina de faturação.
+        self.facture_title = AdvencedLabel("Faturar a compra", path="berkshire.ttf", 
+                                        font_size=28, color='#fee546')
+        self.facture_title.setAlignment(Qt.AlignCenter)
+        self.fact_details_lable = AdvencedLabel("Detalhes da Compra", font_size=18)
+        self.fact_details_lable.setAlignment(Qt.AlignCenter)
+        self.fact_final_price = AdvencedLabel("Preço final: 10345 Kzs", font_size=14)
+        # Criando um layout para detalhes da compra.
+        self.fact_details_layout = QVBoxLayout()
+        self.fact_details_layout.addWidget(self.fact_details_lable)
+        self.fact_details_layout.addWidget(self.fact_final_price)
+
+        self.fact_pay_methods_lable = AdvencedLabel('Métodos de Pagamentos', font_size=18)
+        self.fact_pay_methods_lable.setAlignment(Qt.AlignCenter)
+        self.fact_pay_methods_button1 = Button_custome_2(icon_path='money.svg')
+        self.fact_pay_methods_button2 = Button_custome_2(icon_path= 'credit card.svg')
+        # Criando um layout para botões de pagamentos.
+        self.fact_pay_buttons_layout = QHBoxLayout()
+        self.fact_pay_buttons_layout.addWidget(self.fact_pay_methods_button1)
+        self.fact_pay_buttons_layout.addWidget(self.fact_pay_methods_button2)
+        # Criando um layout para métodos de pagamentos.
+        self.fact_pay_methods_layout = QVBoxLayout()
+        self.fact_pay_methods_layout.addWidget(self.fact_pay_methods_lable)
+        self.fact_pay_methods_layout.addLayout(self.fact_pay_buttons_layout)
+        
+        self.finish_facture = Button_custome_3('Finalizar', 60, 250, shortcut='return', font_size=28)
+        self.finish_facture_layoout = QHBoxLayout()
+        self.finish_facture_layoout.addWidget(self.finish_facture)
+        self.fact_spacer = QSpacerItem(5, 5, QSizePolicy.Fixed, QSizePolicy.Expanding)
+
+        # Criando e adicionando elementos para facture_layout.
+        self.facture_layout = QVBoxLayout(self.facture_page)
+        self.facture_layout.setContentsMargins(15, 15, 15, 15)
+        self.facture_layout.setSpacing(35)
+        self.facture_layout.addWidget(self.facture_title)
+        self.facture_layout.addLayout(self.fact_details_layout)
+        self.facture_layout.addLayout(self.fact_pay_methods_layout)
+        self.facture_layout.addItem(self.fact_spacer)
+        self.facture_layout.addLayout(self.finish_facture_layoout)
 
         # Adicionado elementos a QStrackeWidget right_widget.
         self.right_widget.addWidget(self.add_thinks)
         self.right_widget.addWidget(self.wait_list)
+        self.right_widget.addWidget(self.facture_page)
 
-        self.right_widget.setCurrentIndex(1)
+        # Criando funções personalizadas
+        def selection_animation(self, button_id:int = 0):
+            # Recetando todos os botões.
+            for btn in self.left_button_frame.findChildren(QPushButton):
+                try:
+                    btn.set_active(False)
+                except:
+                    pass
+            if button_id == 1:
+                self.left_button_home.set_active(True)
+                self.main_cotente.setCurrentIndex(0)
+            elif button_id == 2:
+                self.left_button_caixa.set_active(True)
+                self.main_cotente.setCurrentIndex(1)
+            elif button_id == 3:
+                self.left_button_mesa.set_active(True)
+
+        self.right_widget.setCurrentIndex(0)
         

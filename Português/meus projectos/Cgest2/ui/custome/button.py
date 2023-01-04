@@ -164,11 +164,11 @@ class Button_custome_2(QPushButton):
 class Button_custome_3(QPushButton):
     def __init__(self, text = '1', height = 90, width = 90, btn_color = '#9955ff', 
                 btn_hover = '#a76cff', btn_pressed = '#6c3cb4', 
-                is_active = False, shortcut='0'):
+                is_active = False, shortcut='0', font_size = 44):
         super(Button_custome_3, self).__init__()
         self.setFixedSize(width, height)
         self.setText(text)
-        self.setFont(get_font('JosefinSans-SemiBold.ttf', 44))
+        self.setFont(get_font('JosefinSans-SemiBold.ttf', font_size))
         self.setShortcut(shortcut)
         self.btn_color = btn_color
         self.btn_hover = btn_hover
