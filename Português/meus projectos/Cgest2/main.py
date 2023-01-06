@@ -1,6 +1,6 @@
-from ui.windows.interface import Ui_iterface
-from PySide6.QtWidgets import QMainWindow, QApplication, QPushButton
-from PySide6.QtCore import QPropertyAnimation, QEasingCurve
+from ui.all_import_gui import *
+from ui.windows.main_gui import Ui_iterface
+from ui.windows.login_gui import login_gui
 from sys import argv, exit
 
 
@@ -10,7 +10,6 @@ class MainWindow(QMainWindow, Ui_iterface):
         self.TopMenuAnimation = None
         self.LeftMenuAnimation = None
         self.UI_setup(self)
-        self.setMinimumSize(1280, 700)
         self.setWindowTitle('Cgest, uma nova de gerir o seu restaurante')
 
         # Connectando o click dos botões as funções da animação
@@ -74,8 +73,10 @@ class MainWindow(QMainWindow, Ui_iterface):
         self.top_user_frame_info_lable_profil.setHidden(show_left_element)
         self.top_user_frame_info_foto_profil.setHidden(show_left_element)
 
-
-app = QApplication(argv)
-janela = MainWindow()
-janela.show()
-exit(app.exec())
+if __name__ == '__main__':
+    app = QApplication(argv)
+    login = login_gui()
+    login.show()
+    window = MainWindow()
+    window.show()
+    exit(app.exec())

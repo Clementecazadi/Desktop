@@ -1,5 +1,4 @@
-from PySide6.QtWidgets import QWidget, QFrame, QVBoxLayout, QSizePolicy, QHBoxLayout, QLabel, \
-    QProgressBar, QListWidget, QListWidgetItem, QScrollBar
+from ui.all_import_gui import *
 from PySide6.QtCore import Qt
 from ui.custome.Label import AdvencedLabel, get_font
 

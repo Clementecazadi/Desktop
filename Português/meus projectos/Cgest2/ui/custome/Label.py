@@ -1,5 +1,4 @@
-from PySide6.QtWidgets import QLabel, QGraphicsOpacityEffect
-from PySide6.QtCore import Property
+from PySide6.QtWidgets import QLabel
 from PySide6.QtGui import QFontDatabase, QFont
 from PySide6.QtCore import Qt
 from os.path import abspath

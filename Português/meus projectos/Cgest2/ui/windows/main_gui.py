@@ -1,6 +1,4 @@
-from PySide6.QtWidgets import QMainWindow, QVBoxLayout, \
-    QHBoxLayout, QFrame, QPushButton, \
-    QSpacerItem, QSizePolicy, QLabel
+from ui.all_import_gui import *
 from ui.custome.Label import AdvencedLabel, get_font
 from ui.custome.circleimage import mask_image
 from ui.custome.button import Button_custome_1
@@ -9,14 +7,18 @@ from ui.windows.Pages import Pages
 
 # 1. Criando a classe da janela a ser exibida.
 class Ui_iterface(object):
-    def UI_setup(self, janela: QMainWindow):
-        if not janela.objectName():
-            janela.setObjectName('MainWindows')
-        janela.resize(1280, 720)
-        janela.setMinimumSize(640, 360)
+    def UI_setup(self, window_app: QMainWindow):
+        if not window_app.objectName():
+            window_app.setObjectName('MainWindows')
+        window_app.resize(1280, 720)
+        window_app.setMinimumSize(1280, 700)
+        # Adicionando um icone a janela.
+        icon = QPixmap(path_local('logov1.png'))
+        icon = icon.scaled(45, 45, Qt.KeepAspectRatio, Qt.SmoothTransformation)
+        window_app.setWindowIcon(icon)
         # 2. Crianda e configurando MainFrame que a o frame principal. 
-        self.Mainframe = QFrame(janela)
-        janela.setCentralWidget(self.Mainframe)
+        self.Mainframe = QFrame(window_app)
+        window_app.setCentralWidget(self.Mainframe)
         # 3. Criando um layout para mainframe
         self.Mainframe_layout = QHBoxLayout(self.Mainframe)
         self.Mainframe_layout.setContentsMargins(0, 0, 0, 0)

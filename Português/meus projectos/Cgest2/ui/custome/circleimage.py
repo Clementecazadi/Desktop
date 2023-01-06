@@ -1,8 +1,4 @@
-from PySide6.QtCore import Qt, QRect
-from PySide6.QtGui import QBrush, QImage, QPainter, QPixmap, QWindow
-from os.path import abspath
-from os import getcwd
-
+from ui.all_import_gui import *
 
 def mask_image(img:str = '', size:int = 64):
     # buscar a imagem pela raiz. 

@@ -1,8 +1,5 @@
-from PySide6.QtWidgets import QPushButton
+from ui.all_import_gui import *
 from ui.custome.Label import get_font
-from PySide6.QtCore import Qt, QRect
-from PySide6.QtGui import QPainter, QPixmap
-import os
 
 
 class Button_custome_1(QPushButton):
@@ -74,10 +71,10 @@ class Button_custome_1(QPushButton):
         qp.end()
 
     def draw_icon(self, qp, image, color, rect):
-        app_path =os.path.abspath(os.getcwd())
+        app_path =abspath(getcwd())
         folder = "ui/icons"
-        path = os.path.join(app_path, folder)
-        image_path = os.path.normpath(os.path.join(path, image))  
+        path = join(app_path, folder)
+        image_path = normpath(join(path, image))  
         icon = QPixmap(image_path)
         painter = QPainter(icon)
         painter.setCompositionMode(QPainter.CompositionMode_SourceIn)
@@ -147,10 +144,10 @@ class Button_custome_2(QPushButton):
         qp.end()
 
     def draw_icon(self, qp, image, color, rect):
-        app_path =os.path.abspath(os.getcwd())
+        app_path =abspath(getcwd())
         folder = "ui/icons"
-        path = os.path.join(app_path, folder)
-        image_path = os.path.normpath(os.path.join(path, image))  
+        path = join(app_path, folder)
+        image_path = normpath(join(path, image))  
         icon = QPixmap(image_path)
         painter = QPainter(icon)
         painter.setCompositionMode(QPainter.CompositionMode_SourceIn)

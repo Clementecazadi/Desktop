@@ -1,15 +1,10 @@
-from PySide6.QtWidgets import QWidget, QFrame, QVBoxLayout, QSizePolicy, QHBoxLayout, QLabel, \
-    QProgressBar, QListWidgetItem, QScrollBar, QStackedWidget, QTreeWidget, QTreeWidgetItem,\
-    QHeaderView, QGridLayout, QPushButton, QSpacerItem
-from PySide6.QtCore import Qt
-from PySide6.QtGui import QPixmap
+from ui.all_import_gui import *
 from ui.custome.button import Button_custome_2, Button_custome_3
 from ui.custome.Label import get_font, AdvencedLabel
-from ui.custome.path import path_local
 
-class caixa_page(QWidget):
+class cash_page(QWidget):
     def __init__(self):
-        super(caixa_page, self).__init__()
+        super(cash_page, self).__init__()
         # Criando o layout principal.
         self.main_layout = QHBoxLayout(self)
         self.main_layout.setContentsMargins(15, 15, 15, 15)
@@ -27,7 +22,7 @@ class caixa_page(QWidget):
 
         # Criando elemento para left_layout.
         self.dining_table = Button_custome_2(icon_path='dining_table2.svg')
-        self.product = Button_custome_2(icon_path='product.svg', is_active=True)
+        self.product = Button_custome_2(icon_path='product.svg')
         self.product_number = Button_custome_2(icon_path='product number.svg')
         self.delete_product = Button_custome_2(icon_path='delete product.svg')
         self.bill_wait = Button_custome_2(icon_path='bill_waiting.svg')
@@ -173,33 +168,33 @@ class caixa_page(QWidget):
         # Criando paginas para right_widget.
 
         # Pagina zero quando nehuma opção for selecionada.
-        self.first_page = QWidget()
-        self.first_page.setStyleSheet('background: #6c3cb4;')
+        self.informative_page = QWidget()
+        self.informative_page.setStyleSheet('background: #6c3cb4;')
         # Adicionando uma imagem com QPixmap.
         self.cash_image = QPixmap(path_local('cozinhera.png'))
         self.cash_image = self.cash_image.scaled(330, 450, Qt.KeepAspectRatio, Qt.SmoothTransformation)
         self.cash_image_label = QLabel()
         self.cash_image_label.setPixmap(self.cash_image)
 
-        self.label_1 = AdvencedLabel("Escolha uma opção", path="berkshire.ttf", 
+        self.informative_label = AdvencedLabel("Escolha uma opção", path="berkshire.ttf", 
                                             font_size=28)
-        self.label_1.setAlignment(Qt.AlignCenter)
-        self.spacer1 = QSpacerItem(5, 5, QSizePolicy.Fixed, QSizePolicy.Expanding)
-        self.spacer2 = QSpacerItem(5, 5, QSizePolicy.Fixed, QSizePolicy.Expanding)
+        self.informative_label.setAlignment(Qt.AlignCenter)
+        self.informative_spacer1 = QSpacerItem(5, 5, QSizePolicy.Fixed, QSizePolicy.Expanding)
+        self.informative_spacer2 = QSpacerItem(5, 5, QSizePolicy.Fixed, QSizePolicy.Expanding)
 
 
-        self.first_page_layout = QVBoxLayout(self.first_page)
-        self.first_page_layout.setSpacing(15)
-        self.first_page_layout.addItem(self.spacer1)
-        self.first_page_layout.addWidget(self.cash_image_label)
-        self.first_page_layout.addWidget(self.label_1)
-        self.first_page_layout.addItem(self.spacer2)
+        self.informative_page_layout = QVBoxLayout(self.informative_page)
+        self.informative_page_layout.setSpacing(15)
+        self.informative_page_layout.addItem(self.informative_spacer1)
+        self.informative_page_layout.addWidget(self.cash_image_label)
+        self.informative_page_layout.addWidget(self.informative_label)
+        self.informative_page_layout.addItem(self.informative_spacer2)
 
 
         # Pagina para adicionar coisas (produtos e mesas).
-        self.add_thinks = QWidget()
+        self.add_things = QWidget()
         # Criando um layout para add_thinks.
-        self.add_things_layout = QVBoxLayout(self.add_thinks)
+        self.add_things_layout = QVBoxLayout(self.add_things)
         self.add_things_layout.setContentsMargins(25, 15, 25, 15)
         self.add_things_layout.setSpacing(20)
         # Criando elementos para add_things
@@ -364,28 +359,73 @@ class caixa_page(QWidget):
         self.facture_layout.addLayout(self.finish_facture_layoout)
 
         # Adicionado elementos a QStrackeWidget right_widget.
-        self.right_widget.addWidget(self.first_page)
-        self.right_widget.addWidget(self.add_thinks)
+        self.right_widget.addWidget(self.informative_page)
+        self.right_widget.addWidget(self.add_things)
         self.right_widget.addWidget(self.wait_list)
         self.right_widget.addWidget(self.facture_page)
 
-        # Criando funções personalizadas
-        """
-        def selection_animation(self, button_id:int = 0):
-            # Recetando todos os botões.
-            for btn in self.left_button_frame.findChildren(QPushButton):
-                try:
-                    btn.set_active(False)
-                except:
-                    pass
-            if button_id == 1:
-                self.left_button_home.set_active(True)
-                self.main_cotente.setCurrentIndex(0)
-            elif button_id == 2:
-                self.left_button_caixa.set_active(True)
-                self.main_cotente.setCurrentIndex(1)
-            elif button_id == 3:
-                self.left_button_mesa.set_active(True)
-"""
-        self.right_widget.setCurrentIndex(0)
+        self.cancel_bill.clicked.connect(lambda:self.mode(0))
+        self.finish_facture.clicked.connect(lambda:self.mode(0))
+        self.dining_table.clicked.connect(lambda:self.mode(1))
+        self.product.clicked.connect(lambda:self.mode(2))
+        self.product_number.clicked.connect(lambda:self.mode(3))
+        self.bill_wait_list.clicked.connect(lambda:self.mode(4))
+        self.facture.clicked.connect(lambda:self.mode(5))
+        self.fact_pay_methods_button1.clicked.connect(lambda:self.pay_methods_func(1))
+        self.fact_pay_methods_button2.clicked.connect(lambda:self.pay_methods_func(2))
         
+        
+        
+    # Criando funções personalizadas
+        
+    def mode(self, button_id:int = 0):
+        # Recetando todos os botões.
+        self.dining_table.set_active(False)
+        self.product.set_active(False)
+        self.product_number.set_active(False)
+        self.delete_product.set_active(False)
+        self.bill_wait.set_active(False)
+        self.bill_wait_list.set_active(False)
+        self.facture.set_active(False)
+        
+        if button_id == 0:
+            self.right_widget.setCurrentIndex(0)
+            self.fact_pay_methods_button1.set_active(False)
+            self.fact_pay_methods_button2.set_active(False)
+
+        elif button_id == 1:
+            self.dining_table.set_active(True)
+            self.right_widget.setCurrentIndex(1)
+            self.add_title.setText('Indique a mesa')
+
+        elif button_id == 2:
+            self.product.set_active(True)
+            self.right_widget.setCurrentIndex(1)
+            self.add_title.setText('Adicione produtos')
+
+        elif button_id == 3:
+            self.product_number.set_active(True)
+            self.right_widget.setCurrentIndex(1)
+            self.add_title.setText('Indique a quantia')
+
+        elif button_id == 4:
+            self.bill_wait_list.set_active(True)
+            self.right_widget.setCurrentIndex(2)
+            
+        elif button_id == 5:
+            self.facture.set_active(True)
+            self.right_widget.setCurrentIndex(3)
+
+    def pay_methods_func(self, button_id):
+        self.fact_pay_methods_button1.set_active(False)
+        self.fact_pay_methods_button2.set_active(False)
+
+
+        if button_id == 1:
+            self.fact_pay_methods_button1.set_active(True)
+            self.right_widget.setCurrentIndex(1)
+            self.add_title.setText('Dinhero do cliente')
+
+        elif button_id == 2:
+            self.fact_pay_methods_button2.set_active(True)
+
