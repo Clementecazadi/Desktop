@@ -4,9 +4,12 @@ from ui.windows.login_gui import login_gui
 from sys import argv, exit
 
 
-class MainWindow(QMainWindow, Ui_iterface):
+class MainWindow(QMainWindow, Ui_iterface):    
     def __init__(self):
         super(MainWindow, self).__init__()
+        # Inicializando com a tela de login.
+        self.login = login_gui()
+        self.login.show()
         self.TopMenuAnimation = None
         self.LeftMenuAnimation = None
         self.UI_setup(self)
@@ -18,6 +21,12 @@ class MainWindow(QMainWindow, Ui_iterface):
         self.left_button_mesa.clicked.connect(lambda: self.selection_animation(3))
         self.menu_burger.clicked.connect(lambda: self.left_menu_animation())
         self.top_user_rigth_frame_simple_view_button.clicked.connect(lambda: self.top_menu_animation())
+        self.login.left_frame_user_login.clicked.connect(lambda: self.user_login())
+    
+    def user_login(self):
+        if self.login.user_ok == 1:
+            self.show()
+            self.login.close()
 
     def selection_animation(self, button_id:int = 0):
         # Recetando todos os botões.
@@ -75,9 +84,5 @@ class MainWindow(QMainWindow, Ui_iterface):
 
 if __name__ == '__main__':
     app = QApplication(argv)
-    login = login_gui()
-    login.show()
-    if login.user_ok == 1 :
-        window = MainWindow()
-        window.show()
+    window = MainWindow()
     exit(app.exec())

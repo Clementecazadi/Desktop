@@ -3,6 +3,7 @@ from ui.all_import_gui import *
 class login_gui(QMainWindow):
     lock_value = 0
     user_ok = 0
+   
     def __init__(self):
         super(login_gui, self).__init__()
         self.setFixedSize(900, 600)
@@ -25,7 +26,7 @@ class login_gui(QMainWindow):
         self.left_frame_title = AdvencedLabel('Login', 'berkshire.ttf', 44, '#37c8ab')
         self.left_frame_title.setAlignment(Qt.AlignCenter)
         self.left_frame_user_image = QLabel()
-        self.user_image = mask_image('clemente.jpg', 121)
+        self.user_image = mask_image('person.png', 121)
         self.left_frame_user_image.setPixmap(self.user_image)
         self.left_frame_user_image.setAlignment(Qt.AlignCenter)
         self.left_frame_name_user = AdvencedLine_edit('Nome do usuário.', font_size=16)
@@ -39,6 +40,7 @@ class login_gui(QMainWindow):
         self.left_frame_password_layout.addWidget(self.left_frame_password_button)
 
         self.left_frame_user_login = Button_custome_3('Entrar', rt=False, height=50, width=200,font_size=18)
+        self.left_frame_user_login.setShortcut('return')
         self.left_frame_user_login_layout = QHBoxLayout()
         self.left_frame_user_login_layout.addWidget(self.left_frame_user_login)
         # -------
@@ -78,6 +80,8 @@ class login_gui(QMainWindow):
         self.main_layout.addWidget(self.right_label)
 
         self.left_frame_password_button.clicked.connect(lambda: self.lock_mode())
+        self.left_frame_name_user.textEdited.connect(self.verificate_user)
+        self.left_frame_user_login.clicked.connect(self.verificate_user)
 
     def lock_mode(self):
         if self.lock_value == 0:
@@ -87,11 +91,16 @@ class login_gui(QMainWindow):
         else:
             self.left_frame_password_user.setEchoMode(QLineEdit.EchoMode.Password)
             self.lock_value = 0
-            self.user_ok = 1
             self.left_frame_password_button.icon_path = 'icon_lock.svg'
 
         self.left_frame_password_button.update()
+    
+    def verificate_user(self):
+        if self.left_frame_name_user.text().strip() == 'clemente':
+            self.left_frame_user_image.setPixmap(mask_image('clemente.jpg', 121))
+        else:
+            self.left_frame_user_image.setPixmap(mask_image('person.png', 121))
         
-
-  
+        if self.left_frame_name_user.text().strip() == 'clemente' and self.left_frame_password_user.text().strip() == '1234':
+            self.user_ok = 1
         
