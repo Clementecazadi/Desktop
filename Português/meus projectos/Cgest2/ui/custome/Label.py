@@ -1,9 +1,4 @@
-from PySide6.QtWidgets import QLabel
-from PySide6.QtGui import QFontDatabase, QFont
-from PySide6.QtCore import Qt
-from os.path import abspath
-from os import getcwd
-
+from ui.all_import_gui import *
 
 def get_font(path: str = '', font_size: int = 0):
     # buscar a fonte pela raiz. 

@@ -1,7 +1,4 @@
 from ui.all_import_gui import *
-from ui.custome.Label import AdvencedLabel, get_font
-from ui.custome.circleimage import mask_image
-from ui.custome.button import Button_custome_1
 from ui.windows.Pages import Pages
 
 

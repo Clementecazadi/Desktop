@@ -12,8 +12,8 @@ class Pages(QStackedWidget):
         self.home_page = Page_home()
         
         # Criando o pagina do Caixa.
-        self.caixa_page = cash_page()
+        self.cash_page = cash_page()
 
         # Adicionando a pagina a StackedWidget
         self.addWidget(self.home_page)
-        self.addWidget(self.caixa_page)
+        self.addWidget(self.cash_page)

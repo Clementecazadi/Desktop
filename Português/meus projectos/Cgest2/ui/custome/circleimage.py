@@ -7,7 +7,10 @@ def mask_image(img:str = '', size:int = 64):
     # lendo a imagem sob-forma binaria.
     image_bi = open(image_path, 'rb').read()
     # Caregendo a imagem e convertendo em 32-bit ARGB (adicionando canal alpha)
-    image = QImage.fromData(image_bi, 'jpg')
+    if img.endswith('.jpg'):
+        image = QImage.fromData(image_bi, 'jpg')
+    elif img.endswith('.png'):
+        image = QImage.fromData(image_bi, 'png')
     image.convertToFormat(QImage.Format_ARGB32)
     # recortar imagem para quadrado.
     imgsize = min(image.width(), image.height())

@@ -89,7 +89,7 @@ class Button_custome_1(QPushButton):
 class Button_custome_2(QPushButton):
     def __init__(self, height = 70, width = 70, icon_path = '',
                 icon_color = '#ffffff', btn_color = '#9955ff', btn_hover = '#a76cff',
-                btn_pressed = '#6c3cb4', is_active = False, ste = True):
+                btn_pressed = '#6c3cb4', is_active = False, border_radius:int = 5, ste = True):
         super(Button_custome_2, self).__init__()
         self.setFixedSize(width, height)
         self.icon_path = icon_path
@@ -99,6 +99,7 @@ class Button_custome_2(QPushButton):
         self.my_width = width
         self.btn_pressed = btn_pressed
         self.is_active = is_active
+        self.border_radius = border_radius
         if ste:
             self.apstyle()
 
@@ -111,7 +112,7 @@ class Button_custome_2(QPushButton):
         norlma = f"""
                     QPushButton{{
                         background-color: {self.btn_color};
-                        border-radius: 5px;
+                        border-radius: {self.border_radius}px;
                         border: none;
                     }}
                     QPushButton:hover{{
@@ -161,7 +162,7 @@ class Button_custome_2(QPushButton):
 class Button_custome_3(QPushButton):
     def __init__(self, text = '1', height = 90, width = 90, btn_color = '#9955ff', 
                 btn_hover = '#a76cff', btn_pressed = '#6c3cb4', 
-                is_active = False, shortcut='0', font_size = 44):
+                is_active = False, shortcut='0', font_size = 44, rt:bool = True):
         super(Button_custome_3, self).__init__()
         self.setFixedSize(width, height)
         self.setText(text)
@@ -172,7 +173,9 @@ class Button_custome_3(QPushButton):
         self.width = width
         self.btn_pressed = btn_pressed
         self.is_active = is_active
+        self.rt = rt
         self.apstyle()
+        
 
     def set_active(self, value:bool):
         if value == True or value == False:
@@ -180,29 +183,45 @@ class Button_custome_3(QPushButton):
             self.apstyle()
 
     def apstyle(self):
-        norlma = f"""
-                    QPushButton{{
-                        color: #ffffff;
-                        background-color: qlineargradient(spread:pad, x1:0.523, 
-                        y1:1, x2:0.514, y2:0, stop:0 rgba(0, 34, 43, 255),
-                         stop:1 rgba(55, 200, 171, 255));
+        if self.rt:
+            norlma = f"""
+                        QPushButton{{
+                            color: #ffffff;
+                            background-color: qlineargradient(spread:pad, x1:0.523, 
+                            y1:1, x2:0.514, y2:0, stop:0 rgba(0, 34, 43, 255),
+                            stop:1 rgba(55, 200, 171, 255));
+                            border-radius: 5px;
+                            border: none;
+                        }}
+                        QPushButton:hover{{
+                            background-color: qlineargradient(spread:pad, x1:0.495, y1:0, x2:0.5, y2:1, 
+                            stop:0 rgba(169, 113, 255, 255), stop:1 rgba(58, 0, 144, 255));
+                        }}
+                        QPushButton:pressed{{
+                            background-color:  {self.btn_pressed}
+                        }}
+                    """
+        else:
+            norlma = f"""
+                        QPushButton{{
+                            color: #ffffff;
+                            background-color: {self.btn_color};
+                            border-radius: 5px;
+                            border: none;
+                        }}
+                        QPushButton:hover{{
+                            background-color: {self.btn_hover};
+                        }}
+                        QPushButton:pressed{{
+                            background-color:  {self.btn_pressed}
+                        }}
+                    """     
+        active = f"""QPushButton{{
+                        background-color: #fedb04;
                         border-radius: 5px;
                         border: none;
-                    }}
-                    QPushButton:hover{{
-                        background-color: qlineargradient(spread:pad, x1:0.495, y1:0, x2:0.5, y2:1, 
-                        stop:0 rgba(169, 113, 255, 255), stop:1 rgba(58, 0, 144, 255));
-                    }}
-                    QPushButton:pressed{{
-                        background-color:  {self.btn_pressed}
-                    }}
-                """
-        active = f"""QPushButton{{
-                    background-color: #fedb04;
-                    border-radius: 5px;
-                    border: none;
-            }} """      
-               
+                }} """ 
+
         if self.is_active:
             # self.setStyleSheet(norlma + active)
             self.setStyleSheet(active)

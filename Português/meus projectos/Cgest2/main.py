@@ -77,6 +77,7 @@ if __name__ == '__main__':
     app = QApplication(argv)
     login = login_gui()
     login.show()
-    window = MainWindow()
-    window.show()
+    if login.user_ok == 1 :
+        window = MainWindow()
+        window.show()
     exit(app.exec())
