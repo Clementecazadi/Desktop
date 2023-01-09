@@ -129,7 +129,7 @@ class cash_page(QWidget):
                 item.setTextAlignment(x, Qt.AlignCenter)
                 item.setToolTip(1, item.text(1))
 
-        # Criando as lable para mostras detalhes da venda.
+        # Criando layout para mostrar as lable para mostras detalhes da venda.
         self.purchase_details_main_layout = QHBoxLayout()
         self.purchase_details_main_layout.setContentsMargins(0, 0, 0, 0)
         self.purchase_details_main_layout.setSpacing(0)
@@ -140,7 +140,6 @@ class cash_page(QWidget):
         self.service_id = AdvencedLabel('ID do servico: 0125', font_size=16)
         self.dining_table_lable = AdvencedLabel('Mesa: 6', font_size=16)
         self.final_price = AdvencedLabel('Preço Final: 10345 Kzs', font_size=16)
-
         self.purchase_details_layout_1.addWidget(self.service_id)
         self.purchase_details_layout_1.addWidget(self.dining_table_lable)
         self.purchase_details_layout_1.addWidget(self.final_price)
@@ -148,11 +147,9 @@ class cash_page(QWidget):
         self.purchase_details_layout_2 = QVBoxLayout()
         self.purchase_details_layout_2.setContentsMargins(0, 0, 0, 0)
         self.purchase_details_layout_2.setSpacing(10)
-        
         self.cliente_money_lable = AdvencedLabel('Dinheiro: 11000 Kzs', font_size=16)
         self.customer_change_lable = AdvencedLabel('Troco do cliente: 655 Kzs', font_size=16)
         self.customer_stat_lable = AdvencedLabel('', font_size=16)
-
         self.purchase_details_layout_2.addWidget(self.cliente_money_lable)
         self.purchase_details_layout_2.addWidget(self.customer_change_lable)
         self.purchase_details_layout_2.addWidget(self.customer_stat_lable)
@@ -181,15 +178,12 @@ class cash_page(QWidget):
         self.informative_label.setAlignment(Qt.AlignCenter)
         self.informative_spacer1 = QSpacerItem(5, 5, QSizePolicy.Fixed, QSizePolicy.Expanding)
         self.informative_spacer2 = QSpacerItem(5, 5, QSizePolicy.Fixed, QSizePolicy.Expanding)
-
-
         self.informative_page_layout = QVBoxLayout(self.informative_page)
         self.informative_page_layout.setSpacing(15)
         self.informative_page_layout.addItem(self.informative_spacer1)
         self.informative_page_layout.addWidget(self.cash_image_label)
         self.informative_page_layout.addWidget(self.informative_label)
         self.informative_page_layout.addItem(self.informative_spacer2)
-
 
         # Pagina para adicionar coisas (produtos e mesas).
         self.add_things = QWidget()
@@ -261,7 +255,6 @@ class cash_page(QWidget):
         self.add_things_layout.addWidget(self.add_text_show)
         self.add_things_layout.addLayout(self.add_buttons_layout)
         self.add_things_layout.addItem(self.add_spacer)
-
 
         # Criando outra pagina para right_widget, uma lista de espera.
         self.wait_list = QWidget()
@@ -365,7 +358,8 @@ class cash_page(QWidget):
         self.right_widget.addWidget(self.add_things)
         self.right_widget.addWidget(self.wait_list)
         self.right_widget.addWidget(self.facture_page)
-
+        
+        # Conectando os clique dos botões com com funções.
         self.cancel_bill.clicked.connect(lambda:self.mode(0))
         self.finish_facture.clicked.connect(lambda:self.mode(0))
         self.dining_table.clicked.connect(lambda:self.mode(1))
@@ -375,7 +369,6 @@ class cash_page(QWidget):
         self.facture.clicked.connect(lambda:self.mode(5))
         self.fact_pay_methods_button1.clicked.connect(lambda:self.pay_methods_func(1))
         self.fact_pay_methods_button2.clicked.connect(lambda:self.pay_methods_func(2))
-
         self.add_button_0.clicked.connect(lambda:self.add_numbers(0))
         self.add_button_1.clicked.connect(lambda:self.add_numbers(1))
         self.add_button_2.clicked.connect(lambda:self.add_numbers(2))
@@ -390,7 +383,6 @@ class cash_page(QWidget):
         
         
     # Criando funções personalizadas
-        
     def mode(self, button_id:int = 0):
         # Recetando todos os botões.
         self.dining_table.set_active(False)
@@ -436,7 +428,6 @@ class cash_page(QWidget):
         self.fact_pay_methods_button1.set_active(False)
         self.fact_pay_methods_button2.set_active(False)
 
-
         if button_id == 1:
             self.fact_pay_methods_button1.set_active(True)
             self.right_widget.setCurrentIndex(1)
@@ -445,6 +436,7 @@ class cash_page(QWidget):
         elif button_id == 2:
             self.fact_pay_methods_button2.set_active(True)
     
+    # Esta função serve para adicionar número para label add_text_show
     def add_numbers(self, buton_id:int = 0):
         if len(self.add_text_show.text()) <= 10:
             if buton_id == 0:
@@ -513,7 +505,8 @@ class cash_page(QWidget):
                     self.add_text_show_value = 1
                 else:
                     self.add_text_show.setText(self.add_text_show.text() + '9')
-
+                    
+    # Serve para remover numeros da label add_text_show
     def remove_number(self):
         if len(self.add_text_show.text()) > 1:
             text = list(self.add_text_show.text())

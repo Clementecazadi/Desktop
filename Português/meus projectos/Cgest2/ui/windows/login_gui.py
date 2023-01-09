@@ -19,7 +19,7 @@ class login_gui(QMainWindow):
         self.main_layout = QHBoxLayout(self.main_frame)
         self.main_layout.setContentsMargins(0, 0 , 0, 0)
         self.main_layout.setSpacing(0)
-
+        # Criando o frame onde usuário vai poder di 
         self.left_frame = QFrame()
         self.left_frame.setFixedSize(360, 600)
         self.left_frame.setStyleSheet('background-color: #d5ffe6')
@@ -54,7 +54,6 @@ class login_gui(QMainWindow):
 
         self.left_frame_forget_password = Button_custome_2(60, 60, border_radius=30, icon_path='forget_password.svg')
         self.left_frame_add_user = Button_custome_2(60, 60, border_radius=30, icon_path='add_user.svg')
-        
         
         self.left_frame_more_layout = QHBoxLayout()
         self.left_frame_more_layout.addWidget(self.left_frame_forget_password)
