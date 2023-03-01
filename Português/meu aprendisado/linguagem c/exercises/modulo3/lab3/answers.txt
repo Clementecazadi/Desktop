@@ -1,0 +1,11 @@
+sort1 uses: bubble sort.
+
+How do you know?: porque o tempos que o sort 1 leva para organisar um arquivo organisado é diferente de um arquivo em desordem.
+
+sort2 uses: merge sort.
+
+How do you know?: O tempo que esse algoritmo leva muito minimo comparado a os outros.
+
+sort3 uses: selection sort.
+
+How do you know?: O tempo que ele leva para organisar um arquivo organisado e em desordem e essencialmente igual.

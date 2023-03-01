@@ -7,7 +7,7 @@ int cash(float money);
 
 int main(void)
 {
-    float money = get_pos_num();
+    int money = get_pos_num();
     printf("%i\n", cash(money));
 }
 
@@ -18,35 +18,35 @@ float get_pos_num(void)
     {
         n = get_float("Troco: ");
     }
-    while (n < 0.0);
+    while (n < 0.0 || n > 100.00);
     //n = round(n * 100);
-    return n;
+    return round(n * 100);
 }
 
 int cash(float money)
 {
     int count = 0;
-    while (0.0 < money)
+    while (0 < money)
     {
-        if (0.25 <= money)
+        if (25 <= money)
         {
             count++;
-            money -= 0.25;
+            money -= 25;
         }
-        else if (0.10 <= money)
+        else if (10 <= money)
         {
             count++;
-            money -= 0.10;
+            money -= 10;
         }
-        else if (0.5 <= money)
+        else if (5 <= money)
         {
             count++;
-            money -= 0.5;
+            money -= 5;
         }
         else
         {
             count++;
-            money -= 0.1;
+            money -= 1;
         }
     }
     return count;

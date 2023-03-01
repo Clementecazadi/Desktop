@@ -9,34 +9,42 @@ int main(int argc, string argv[])
 {
     if (argc == 2)
     {
-        string text = get_string("Plaintext: ");
-        const int key = atoi(argv[1]);
-        printf("Ciphertext: ");
-        for (int indice = 0, length = strlen(text); indice < length; indice++)
+        if (argv[1][0] > 48 && argv[1][0] < 58)
         {
-            if (isupper(text[indice]))
+            string text = get_string("Plaintext: ");
+            const int key = atoi(argv[1]);
+            printf("Ciphertext: ");
+            for (int indice = 0, length = strlen(text); indice < length; indice++)
             {
-                int letter = text[indice] - 65;
-                int cifer = (letter + key)%26;
+                if (isupper(text[indice]))
+                {
+                    int letter = text[indice] - 65;
+                    int cifer = (letter + key)%26;
 
-                printf("%c", cifer + 65);
-            }
-            else if (islower(text[indice]))
-            {
-                int letter = text[indice] - 97;
-                int cifer = (letter + key)%26;
-                printf("%c", cifer + 97);
-            }
-            else
-            {
-                printf("%c", text[indice]);
-            }
+                    printf("%c", cifer + 65);
+                }
+                else if (islower(text[indice]))
+                {
+                    int letter = text[indice] - 97;
+                    int cifer = (letter + key)%26;
+                    printf("%c", cifer + 97);
+                }
+                else
+                {
+                    printf("%c", text[indice]);
+                }
 
+            }
+            printf("\n");
         }
-        printf("\n");
+        else
+        {
+            return 2;
+        }
     }
     else
     {
         printf("./caesar Key\n");
+        return 1;
     }
 }

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="14mm"
+   height="14mm"
+   viewBox="0 0 14 14"
+   version="1.1"
+   id="svg1021"
+   inkscape:version="1.1.2 (0a00cf5, 2022-02-04)"
+   sodipodi:docname="dinheiro.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1023"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     height="14mm"
+     inkscape:zoom="2.8017485"
+     inkscape:cx="82.270053"
+     inkscape:cy="71.205534"
+     inkscape:window-width="1440"
+     inkscape:window-height="844"
+     inkscape:window-x="0"
+     inkscape:window-y="20"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1018" />
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g11193"
+       transform="translate(0.00275281,-0.55199379)">
+      <path
+         id="rect3436"
+         style="fill:#ffffff;stroke-width:0;-inkscape-stroke:none;stop-color:#000000"
+         d="M 51.099609,22.646484 45.679688,35.439453 H 2.2382812 l -2.25585933,5.324219 H 45.205078 l 7.677734,-18.117188 z"
+         transform="scale(0.26458333)" />
+      <path
+         id="rect3436-8"
+         style="fill:#ffffff;stroke-width:0;-inkscape-stroke:none;stop-color:#000000"
+         d="M 7.6855469,16.322266 0.0078125,34.441406 H 45.232422 l 7.677734,-18.11914 z m 21.5781251,1.3125 a 6.4544828,8.8526561 49.506836 0 1 5.160156,7.558593 6.4544828,8.8526561 49.506836 0 1 -9.957031,7.560547 6.4544828,8.8526561 49.506836 0 1 -5.160156,-7.560547 6.4544828,8.8526561 49.506836 0 1 9.957031,-7.558593 z"
+         transform="scale(0.26458333)" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-weight:normal;font-size:4.58294px;line-height:1.25;font-family:sans-serif;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.114574"
+         x="7.095531"
+         y="9.7333641"
+         id="text5603"
+         transform="matrix(1.2367376,0,-0.39365608,0.80857895,0,0)"><tspan
+           sodipodi:role="line"
+           id="tspan5601"
+           style="fill:#ffffff;stroke-width:0.114574"
+           x="7.095531"
+           y="9.7333641">$</tspan></text>
+    </g>
+  </g>
+</svg>

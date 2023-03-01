@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="14mm"
+   height="14mm"
+   viewBox="0 0 14 14"
+   version="1.1"
+   id="svg64202"
+   inkscape:version="1.1.2 (0a00cf5, 2022-02-04)"
+   sodipodi:docname="conta em espera.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview64204"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     height="14mm"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:zoom="2.8017485"
+     inkscape:cx="103.68525"
+     inkscape:cy="60.497935"
+     inkscape:window-width="1440"
+     inkscape:window-height="844"
+     inkscape:window-x="0"
+     inkscape:window-y="20"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
+    <sodipodi:guide
+       position="7.7908935,7.0118042"
+       orientation="0,-1"
+       id="guide64963" />
+    <sodipodi:guide
+       position="6.9881954,9.8920739"
+       orientation="1,0"
+       id="guide64965" />
+  </sodipodi:namedview>
+  <defs
+     id="defs64199" />
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <ellipse
+       style="fill:none;fill-rule:evenodd;stroke:#ffffff;stroke-width:1.36087;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path64285"
+       cx="7"
+       cy="7"
+       rx="6.3195653"
+       ry="6.3195667" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.47689;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect64710"
+       width="3.7069638"
+       height="1.0960526"
+       x="6.4543395"
+       y="6.4246435"
+       ry="0.5119217"
+       rx="0" />
+    <rect
+       style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.68816;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect64710-2"
+       width="4.8433499"
+       height="1.0960587"
+       x="-7.3322072"
+       y="6.4497871"
+       ry="0.51192451"
+       rx="0"
+       transform="matrix(0.00157735,-0.99999876,0.9999912,0.00419417,0,0)" />
+  </g>
+</svg>

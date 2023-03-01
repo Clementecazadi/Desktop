@@ -25,38 +25,28 @@ int get_positive(void)
 
 void draw_py(int height)
 {
-    for (int line = 1; line < height + 1; line++)
+    for (int line = 0; line < height; line++)
     {
-        for (int colun = 0; colun < height * 2; colun++ )
+        for (int colun = height - line; colun > 0; colun--)
         {
-            if (colun < height)
+            if (colun > 1)
             {
-                if(colun < height - line)
-                {
-                    printf(" ");
-                }
-                else
-                {
-                    for(int n = 0; n < line; n++)
-                    {
-                        printf("#");
-                        break;
-                    }
-                }
-            }
-            else if (colun == height)
-            {
-                    printf(" ");
+                printf(" ");
             }
             else
             {
-                for (int n = line; n >= 1; n--)
+                for (int re = line; re >= 0; re--)
                 {
                     printf("#");
                 }
-                break;
+
             }
 
+        }
+        printf("  ");
+        for (int re = line; re >= 0; re--)
+        {
+            printf("#");
         }
         printf("\n");
     }
