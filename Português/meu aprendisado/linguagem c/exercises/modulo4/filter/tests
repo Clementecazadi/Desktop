@@ -1,0 +1,55 @@
+            int gx[3][3];
+            gx[0] = {-1, 0, 1};
+            gx[1] = {-2, 0, 2};
+            gx[2] = {-1, 0, 1};
+            int gy[3][3] = {{-1, -2, -1}, {0, 0, 0}, {1, 2, 1}};
+            int bluex = 0;
+            int bluey = 0;
+            int greenx = 0;
+            int greeny = 0;
+            int redx = 0;
+            int redy = 0;
+            if (i - 1 < 0 && i + 2 < height)
+            {
+                for (int k = i; k < i + 2; k++)
+                {
+                    if (j - 1 >= 0 && j + 2 <= width)
+                    {
+                        for (int d = j - 1; d < j + 2; d++)
+                        {
+                            for (int m = 1; m < 3; m++)
+                            {
+                                for (int l = 0; l < 3; l++)
+                                {
+                                    bluex +=  gx[m][l] * image[k][d].rgbtBlue;
+                                    redx += gx[m][l] * image[k][d].rgbtRed;
+                                    greenx += gx[m][l] * image[k][d].rgbtGreen;
+
+                                    bluey +=  gy[m][l] * image[k][d].rgbtBlue;
+                                    redy += gy[m][l] * image[k][d].rgbtRed;
+                                    greeny += gy[m][l] * image[k][d].rgbtGreen;
+                                }
+                            }
+                        }
+                    }
+                    else if (j - 1 < 0 && j + 2 < width)
+                    {
+                        for (int d = j; d < j + 2; d++)
+                        {
+                            for (int m = 1; m < 3; m++)
+                            {
+                                for (int l = 1; l < 3; l++)
+                                {
+                                    bluex +=  gx[m][l] * image[k][d].rgbtBlue;
+                                    redx += gx[m][l] * image[k][d].rgbtRed;
+                                    greenx += gx[m][l] * image[k][d].rgbtGreen;
+
+                                    bluey +=  gy[m][l] * image[k][d].rgbtBlue;
+                                    redy += gy[m][l] * image[k][d].rgbtRed;
+                                    greeny += gy[m][l] * image[k][d].rgbtGreen;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
