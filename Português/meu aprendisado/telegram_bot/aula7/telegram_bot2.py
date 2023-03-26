@@ -55,4 +55,3 @@ class TelegramBot(object):
 
 bot = TelegramBot()
 bot.iniciar()
-pprint
