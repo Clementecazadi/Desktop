@@ -1,0 +1,67 @@
+strong
+{
+    color: yellow;
+}
+.sect1
+{
+    background-image: url(/background.png);
+}
+.my_name_div
+{
+    padding: 100px 0px 0px 0px;
+}
+.cont_txt
+{
+    font-family: 'Comfortaa', cursive;
+    font-size: 26px;
+    color: #ffffff;
+}
+.my_name
+{
+    font-family: 'Khand', sans-serif;
+    font-size:100px;
+    line-height: 105px;
+    color: #ffffff;
+}
+.saiba
+{
+    padding: 10px 80px;
+    font-family: 'Khand', sans-serif;
+    font-size:30px;
+}
+h1
+{
+    font-family: 'Khand', sans-serif;
+    font-size: 70px;
+    padding:50px 20px 20px 20px;
+    text-align: center;
+}
+.texto
+{
+    font-family: 'Comfortaa', cursive;
+    font-size: 26px;
+}
+.footer
+{
+    color: #ffffff;
+    background-color: #111111;
+    padding:20px;
+    text-align: center;
+    margin: 30;
+}
+.hist
+{
+    background-color: #22336f;
+    color: #ffffff;
+}
+h2
+{
+    font-family: 'Khand', sans-serif;
+    font-size: 50px;
+    text-align: center;
+    margin: 40px;
+}
+.image
+{
+    margin: 60px 0px 0px 0px;
+}
