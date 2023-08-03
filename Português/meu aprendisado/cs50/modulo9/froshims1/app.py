@@ -14,7 +14,7 @@ mail = Mail(app)
 
 db = SQL("sqlite:///froshims.db")
 
-#REGISTERS = {}
+# REGISTERS = {}
 
 SPORTS = [
     "Dodgeball",
@@ -23,9 +23,11 @@ SPORTS = [
     "Volleyball",
     "Ultimate Frisbee"]
 
+
 @app.route("/")
 def index():
     return render_template("index.html", sports=SPORTS)
+
 
 @app.route("/register", methods=["POST"])
 def register():
@@ -42,12 +44,13 @@ def register():
         return render_template('error.html', message="Missing e-mail.")
     # print(request.form.getlist("sport"))
 
-    #REGISTERS[name] = sport
-    #return render_template("registrants.html", registrants=REGISTERS)
+    # REGISTERS[name] = sport
+    # return render_template("registrants.html", registrants=REGISTERS)
     db.execute("INSERT INTO registrants(name, email, sport) VALUES (?, ?, ?)", name, email, sport)
-    message = Message(f"{name}, you are registered!", sender=os.getenv("MAIL_USERNAME") ,recipients=[email])
+    message = Message(f"{name}, you are registered!", sender=os.getenv("MAIL_USERNAME"), recipients=[email])
     mail.send(message)
     return redirect("/registrants")
+
 
 @app.route("/registrants")
 def registrants():
