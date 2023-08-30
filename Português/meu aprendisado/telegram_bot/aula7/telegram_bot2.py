@@ -4,7 +4,7 @@ import time
 
 class TelegramBot(object):
     def __init__(self):
-        self.token = "6157993125:AAHX38Zo9Cglqh3y7_-5DqysX0rrsN6tq28"
+        self.token = "
         self.url_base = f"http://api.telegram.org/bot{self.token}/"
 
     def iniciar(self):
