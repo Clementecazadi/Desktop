@@ -1,7 +1,7 @@
 import telegram
 from telegram.ext import Updater, CommandHandler
 
-TOKEN = "6157993125:AAHX38Zo9Cglqh3y7_-5DqysX0rrsN6tq28"
+TOKEN = 
 update = Updater(oTOKEN)
 
 
