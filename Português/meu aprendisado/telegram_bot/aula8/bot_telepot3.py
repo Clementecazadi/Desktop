@@ -3,7 +3,7 @@ from telepot.loop import MessageLoop
 from telepot.namedtuple import InlineKeyboardMarkup, InlineKeyboardButton
 from time import sleep
 
-TOKEN = "6157993125:AAHX38Zo9Cglqh3y7_-5DqysX0rrsN6tq28"
+TOKEN = 
 bot = telepot.Bot(TOKEN)
 
 
