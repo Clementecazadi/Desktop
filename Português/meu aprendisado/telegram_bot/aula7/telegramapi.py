@@ -1,6 +1,6 @@
 import requests
 import time
-token = "6157993125:AAHX38Zo9Cglqh3y7_-5DqysX0rrsN6tq28"
+token = 
 url_base = f"http:ap//i.telegram.org/bot{token}"
 
 while True:
